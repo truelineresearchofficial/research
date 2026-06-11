@@ -67,7 +67,7 @@ the DB and code**, runs `git pull && docker compose build && alembic upgrade hea
 certbot). No container registry — images build on the host.
 
 - Live at `https://truelineresearch.yazhl.dpdns.org`
-- Ports (loopback): api `8100`, frontend `8110`, postgres `5444`
+- Ports (loopback): api `8100`, frontend `8110`, postgres `5447`
 - Per-deploy backups: `/var/backups/trueline-research/` (last 10)
 
 ## Required GitHub secrets

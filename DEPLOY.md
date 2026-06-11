@@ -2,7 +2,7 @@
 
 Target: **contabo-damu** (45.136.17.109, Ubuntu 24.04, Nginx + Docker).
 Domain: **truelineresearch.yazhl.dpdns.org**. Ports (loopback): api `8100`,
-frontend `8110`, postgres `5444`. Install path: `/var/www/tools/trueline-research`.
+frontend `8110`, postgres `5447`. Install path: `/var/www/tools/trueline-research`.
 
 > Publisher repo is identical with: domain `truelinepublishers.yazhl.dpdns.org`,
 > ports `8101 / 8111 / 5446`, path `/var/www/tools/trueline-publisher`, image
@@ -189,5 +189,5 @@ Also verify: deep-link refresh (`/about`) → 200; invalid email → inline erro
 
 ## 10. Update the server profile
 
-Record ports `8100/8110/5444`, the new vhost, and the backup path in
+Record ports `8100/8110/5447`, the new vhost, and the backup path in
 `.claude/deployment-knowledge/server-profiles/contabo-damu.md`.
