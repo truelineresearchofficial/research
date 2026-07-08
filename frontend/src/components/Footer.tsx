@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowUpRight, Mail, MapPin } from 'lucide-react'
 import { Wordmark } from './Marks'
-import { BRAND } from '../lib/content'
+import { BRAND, CONTACT_INFO } from '../lib/content'
 
 const COLS = [
   {
@@ -30,6 +30,7 @@ const COLS = [
       { label: 'Ethics & Integrity', to: '/about#ethics' },
       { label: 'Impact', to: '/about#impact' },
       { label: 'Careers', to: '/about#careers' },
+      { label: 'Contact', to: '/contact' },
     ],
   },
   {
@@ -55,13 +56,21 @@ export default function Footer() {
               institutions across India and the Gulf.
             </p>
             <div className="mt-6 space-y-2.5 text-sm text-white/55">
-              <p className="flex items-center gap-2.5">
-                <MapPin className="h-4 w-4 text-brand-300" /> {BRAND.hq}
+              <p className="flex items-start gap-2.5 leading-relaxed">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-300" />
+                Trueline Research, Building No. 7/232-26, Devi Towers, Kalipatti Privu Road, Vaikuntham,
+                Sankari, Salem, Tamil Nadu - 637103
               </p>
-              <a href="mailto:hello@truelineresearch.com" className="flex items-center gap-2.5 hover:text-white">
-                <Mail className="h-4 w-4 text-brand-300" /> hello@truelineresearch.com
+              <a href={`mailto:${CONTACT_INFO.email}`} className="flex items-center gap-2.5 hover:text-white">
+                <Mail className="h-4 w-4 text-brand-300" /> {CONTACT_INFO.email}
               </a>
             </div>
+            <Link
+              to="/contact"
+              className="btn-brand mt-6 inline-flex h-10 px-5 text-sm"
+            >
+              Contact us
+            </Link>
           </div>
 
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-8">

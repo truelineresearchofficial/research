@@ -3,7 +3,7 @@ import type { FormEvent } from 'react'
 import { useLocation } from 'react-router-dom'
 import { CheckCircle2, MapPin, ArrowRight } from 'lucide-react'
 import { Container, Reveal, Eyebrow } from '../lib/ui'
-import { CONTACT_FORMS, OFFICES, BRAND } from '../lib/content'
+import { CONTACT_FORMS, OFFICES, BRAND, CONTACT_INFO } from '../lib/content'
 import { Molecule } from '../components/Marks'
 import { submitForm, SubmitError } from '../lib/submit'
 
@@ -186,9 +186,29 @@ export default function Contact() {
               </ul>
               <div className="mt-7 border-t border-white/10 pt-6">
                 <p className="text-sm text-white/55">General enquiries</p>
-                <a href="mailto:hello@truelineresearch.com" className="mt-1 block font-medium text-brand-300 hover:text-brand-200">
-                  hello@truelineresearch.com
+                <a href={`mailto:${CONTACT_INFO.email}`} className="mt-1 block font-medium text-brand-300 hover:text-brand-200">
+                  {CONTACT_INFO.email}
                 </a>
+                <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
+                  {CONTACT_INFO.phones.map((p) => (
+                    <a
+                      key={p.label}
+                      href={`tel:${p.number.replace(/\s+/g, '')}`}
+                      className="text-sm font-medium text-white/70 hover:text-brand-200"
+                    >
+                      {p.label}: {p.number}
+                    </a>
+                  ))}
+                </div>
+                <a
+                  href={`https://${CONTACT_INFO.website}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-3 block text-sm text-white/55 hover:text-brand-200"
+                >
+                  {CONTACT_INFO.website}
+                </a>
+                <p className="mt-3 text-xs text-white/40">{CONTACT_INFO.hours}</p>
                 <p className="mt-4 text-xs text-white/40">{BRAND.group}</p>
               </div>
             </div>

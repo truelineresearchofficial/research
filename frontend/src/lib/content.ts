@@ -146,6 +146,10 @@ export const NAV: NavItem[] = [
     label: 'Insights',
     to: '/insights',
   },
+  {
+    label: 'Contact',
+    to: '/contact',
+  },
 ]
 
 export const UTILITY_LINKS: NavLeaf[] = [
@@ -435,7 +439,30 @@ export const CONTACT_FORMS = [
 ]
 
 export const OFFICES = [
-  { city: 'Salem (HQ)', detail: 'Vaikuntham, Salem — Tamil Nadu, India' },
-  { city: 'Kerala', detail: 'South India partner network' },
+  {
+    city: 'Editorial office — Salem (HQ)',
+    detail:
+      'Building No. 7/232-26, Devi Towers, Kalipatti Privu Road, Vaikuntham, Sankari, Salem, Tamil Nadu - 637103',
+  },
+  {
+    city: 'Branch Office — Salem',
+    detail:
+      'Co-Working Space, 2nd Floor, Sona Incubation Foundation, Sona College of Technology, Salem – 636005, Tamil Nadu, India',
+  },
+  {
+    city: 'Branch Office — Ernakulam',
+    detail:
+      'Building No: 37/882, Opp. Municipal Town Hall, Thirunilath Housing Colony, South Kalamassery, Ernakulam – 682039, Kerala, India (Landmark: Cake Hut Shop)',
+  },
   { city: 'Gulf desk', detail: 'GCC institutional partnerships' },
 ]
+
+export const CONTACT_INFO = {
+  email: 'info@truelineresearch.in',
+  phones: [
+    { label: 'TN', number: '+91 95788 73584' },
+    { label: 'KL', number: '+91 80564 17009' },
+  ],
+  website: 'www.truelineresearch.in',
+  hours: 'Monday – Saturday | 9:30 AM – 6:30 PM',
+}
