@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronDown, Globe, Menu, X, ArrowRight } from 'lucide-react'
 import { NAV, UTILITY_LINKS, GROUP_LINKS, type NavItem } from '../lib/content'
-import { Wordmark } from './Marks'
+import logo from '../assets/logo.png'
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
@@ -90,7 +90,7 @@ export default function Nav() {
       >
         <div className="container-tl flex h-[68px] items-center justify-between">
           <Link to="/" aria-label="Trueline Research home">
-            <Wordmark />
+            <img src={logo} alt="Trueline Research" className="h-14 w-auto" />
           </Link>
 
           {/* Desktop nav */}

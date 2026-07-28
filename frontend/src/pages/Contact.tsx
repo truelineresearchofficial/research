@@ -1,11 +1,41 @@
 import { useEffect, useState } from 'react'
 import type { FormEvent } from 'react'
 import { useLocation } from 'react-router-dom'
-import { CheckCircle2, MapPin, ArrowRight } from 'lucide-react'
+import { CheckCircle2, MapPin, ArrowRight, MessageCircle, Mail, Phone, Clock } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { Container, Reveal, Eyebrow } from '../lib/ui'
-import { CONTACT_FORMS, OFFICES, BRAND, CONTACT_INFO } from '../lib/content'
+import { CONTACT_FORMS, OFFICE_LOCATIONS } from '../lib/content'
 import { Molecule } from '../components/Marks'
 import { submitForm, SubmitError } from '../lib/submit'
+
+// Direct-contact cards shown alongside the consultation form.
+const CONTACT_CARDS: { icon: LucideIcon; title: string; subtitle: string; href: string; external?: boolean }[] = [
+  {
+    icon: MessageCircle,
+    title: 'WhatsApp us directly',
+    subtitle: 'Chat with our publishing team',
+    href: 'https://wa.me/message/7NHZKTMAKDIWJ1',
+    external: true,
+  },
+  {
+    icon: Mail,
+    title: 'info@truelinepublisher.in',
+    subtitle: 'Email our publishing team',
+    href: 'mailto:info@truelinepublisher.in',
+  },
+  {
+    icon: Phone,
+    title: 'Tamil Nadu Office',
+    subtitle: '+91 95788 73584',
+    href: 'tel:+919578873584',
+  },
+  {
+    icon: Phone,
+    title: 'Kerala Office',
+    subtitle: '+91 80564 17009',
+    href: 'tel:+918056417009',
+  },
+]
 
 export default function Contact() {
   const { hash } = useLocation()
@@ -69,9 +99,49 @@ export default function Contact() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-8 lg:grid-cols-12">
-          {/* Selector + form */}
-          <div className="lg:col-span-8">
+        <div className="mt-12 grid items-start gap-8 md:grid-cols-2 lg:gap-12">
+          {/* Left — reach us directly */}
+          <div>
+            <h2 className="font-display text-2xl font-semibold text-ink">Reach us directly</h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
+              Have questions? Connect with our publishing team through WhatsApp, email, or phone. We usually respond
+              within one business day.
+            </p>
+
+            <div className="mt-8 space-y-4">
+              {CONTACT_CARDS.map((c) => (
+                <a
+                  key={c.title}
+                  href={c.href}
+                  {...(c.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  className="group flex w-full items-center gap-4 rounded-2xl border border-line bg-white p-5 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-lg"
+                >
+                  <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-colors group-hover:bg-brand-100">
+                    <c.icon className="h-6 w-6" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block font-display text-[15px] font-semibold text-ink">{c.title}</span>
+                    <span className="block text-sm text-ink-soft">{c.subtitle}</span>
+                  </span>
+                </a>
+              ))}
+
+              {/* Business Hours — non-interactive */}
+              <div className="flex w-full items-center gap-4 rounded-2xl border border-line bg-white p-5 shadow-card">
+                <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
+                  <Clock className="h-6 w-6" />
+                </span>
+                <span className="min-w-0">
+                  <span className="block font-display text-[15px] font-semibold text-ink">Business Hours</span>
+                  <span className="block text-sm text-ink-soft">Monday – Saturday</span>
+                  <span className="block text-sm text-ink-soft">9:00 AM – 6:00 PM</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right — existing consultation form (logic unchanged) */}
+          <div>
             <div className="flex flex-wrap gap-2">
               {CONTACT_FORMS.map((f) => (
                 <button
@@ -80,9 +150,8 @@ export default function Contact() {
                     setActive(f.id)
                     reset()
                   }}
-                  className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all ${
-                    active === f.id ? 'bg-ink text-white shadow-card' : 'border border-line bg-white text-ink-soft hover:border-ink/30'
-                  }`}
+                  className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all ${active === f.id ? 'bg-ink text-white shadow-card' : 'border border-line bg-white text-ink-soft hover:border-ink/30'
+                    }`}
                 >
                   {f.audience}
                 </button>
@@ -157,7 +226,7 @@ export default function Contact() {
                       <button
                         type="submit"
                         disabled={submitting}
-                        className="btn-brand h-12 px-7 text-[15px] disabled:opacity-60"
+                        className="btn-brand h-12 w-full px-7 text-[15px] disabled:opacity-60 sm:w-auto"
                       >
                         {submitting ? 'Sending…' : form.cta} <ArrowRight className="h-4 w-4" />
                       </button>
@@ -167,54 +236,79 @@ export default function Contact() {
               )}
             </div>
           </div>
+        </div>
 
-          {/* Offices */}
-          <div className="lg:col-span-4">
-            <div className="rounded-[2rem] border border-line bg-ink p-8 text-white">
-              <Eyebrow className="text-brand-300">Offices & locations</Eyebrow>
-              <h3 className="mt-4 font-display text-xl font-semibold text-white">Where we operate</h3>
-              <ul className="mt-6 space-y-5">
-                {OFFICES.map((o) => (
-                  <li key={o.city} className="flex gap-3">
-                    <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-brand-300" />
-                    <div>
-                      <p className="font-semibold text-white">{o.city}</p>
-                      <p className="text-sm text-white/55">{o.detail}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-7 border-t border-white/10 pt-6">
-                <p className="text-sm text-white/55">General enquiries</p>
-                <a href={`mailto:${CONTACT_INFO.email}`} className="mt-1 block font-medium text-brand-300 hover:text-brand-200">
-                  {CONTACT_INFO.email}
-                </a>
-                <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1">
-                  {CONTACT_INFO.phones.map((p) => (
-                    <a
-                      key={p.label}
-                      href={`tel:${p.number.replace(/\s+/g, '')}`}
-                      className="text-sm font-medium text-white/70 hover:text-brand-200"
-                    >
-                      {p.label}: {p.number}
-                    </a>
-                  ))}
-                </div>
-                <a
-                  href={`https://${CONTACT_INFO.website}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-3 block text-sm text-white/55 hover:text-brand-200"
-                >
-                  {CONTACT_INFO.website}
-                </a>
-                <p className="mt-3 text-xs text-white/40">{CONTACT_INFO.hours}</p>
-                <p className="mt-4 text-xs text-white/40">{BRAND.group}</p>
-              </div>
-            </div>
+        {/* Our Offices */}
+        <div className="mt-24 text-center">
+          <Reveal>
+            <Eyebrow className="justify-center">Our Offices</Eyebrow>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <h2 className="display mt-5 text-[clamp(2rem,4vw,3.2rem)] text-balance">Our Offices</h2>
+          </Reveal>
+
+          {/* Headquarters */}
+          <Reveal delay={0.1}>
+            <h3 className="mt-14 font-display text-sm font-semibold uppercase tracking-widest text-brand-600">
+              Headquarters
+            </h3>
+          </Reveal>
+          <Reveal delay={0.12} className="mt-6 flex justify-center">
+            {OFFICE_LOCATIONS.filter((o) => o.hq).map((o) => (
+              <OfficeCard key={o.title} office={o} className="w-full max-w-2xl" />
+            ))}
+          </Reveal>
+
+          {/* Branch Offices */}
+          <Reveal delay={0.15}>
+            <h3 className="mt-16 font-display text-sm font-semibold uppercase tracking-widest text-brand-600">
+              Branch Offices
+            </h3>
+          </Reveal>
+          <div className="mx-auto mt-6 grid max-w-6xl gap-6 md:grid-cols-2">
+            {OFFICE_LOCATIONS.filter((o) => !o.hq).map((o, i) => (
+              <Reveal key={o.title} delay={0.15 + i * 0.05}>
+                <OfficeCard office={o} className="h-full" />
+              </Reveal>
+            ))}
           </div>
         </div>
       </Container>
     </section>
+  )
+}
+
+function OfficeCard({
+  office,
+  className = '',
+}: {
+  office: { title: string; subtitle: string; address: string; mapUrl: string }
+  className?: string
+}) {
+  return (
+    <div className={`card flex flex-col items-center p-8 text-center ${className}`}>
+      <div className="flex items-center gap-3">
+        <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-600">
+          <MapPin className="h-6 w-6" />
+        </span>
+        <h4 className="font-display text-xl md:text-2xl font-semibold text-ink md:whitespace-nowrap">
+          {office.title}
+        </h4>
+      </div>
+      {office.subtitle && <p className="mt-3 text-base font-semibold text-brand-600">
+        {office.subtitle}
+      </p>}
+      <p className="mt-4 text-[17px] leading-relaxed text-ink-soft">
+        {office.address.replace(/\n/g, ' ')}
+      </p>
+      <a
+        href={office.mapUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn-brand mt-6 w-full sm:w-auto text-base"
+      >
+        <MapPin className="h-4 w-4" /> View on Google Maps
+      </a>
+    </div>
   )
 }

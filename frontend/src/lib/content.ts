@@ -457,6 +457,36 @@ export const OFFICES = [
   { city: 'Gulf desk', detail: 'GCC institutional partnerships' },
 ]
 
+// Structured office data for the "Our Offices" section on the Contact page.
+// Google Maps URLs are stored here and rendered dynamically.
+
+export const OFFICE_LOCATIONS = [
+  {
+    hq: true,
+    title: "Head Office — Salem, Tamil Nadu ",
+    subtitle: "",
+    address:
+      "Building No. 7/232-26, Devi Towers, Kalipatti Pirivu Road, Vaikuntham, Sankari, Salem, Tamil Nadu – 637103, India",
+    mapUrl: "https://maps.app.goo.gl/Ati4aSyuC7cuHZYm9",
+  },
+  {
+    hq: false,
+    title: "Branch Office — Salem, Tamil Nadu",
+    subtitle: "Trueline Research Group",
+    address:
+      "Co-Working Space, 2nd Floor, Sona Incubation Foundation, Sona College of Technology, Salem, Tamil Nadu – 636005, India",
+    mapUrl: "https://maps.app.goo.gl/44mdDMfmWJ1AkHNi9?g_st=awb",
+  },
+  {
+    hq: false,
+    title: "Branch Office — Ernakulam, Kerala",
+    subtitle: "Trueline Research Group",
+    address:
+      "Building No. 37/882, Opp. Municipal Town Hall, Thirunithura Housing Colony, South Kalamassery, Ernakulam, Kerala – 682039, India",
+    mapUrl: "https://maps.app.goo.gl/hufdZdswJoj3JW297?g_st=awb",
+  },
+];
+
 export const CONTACT_INFO = {
   email: 'info@truelineresearch.in',
   phones: [
