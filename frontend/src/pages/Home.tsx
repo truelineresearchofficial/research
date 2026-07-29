@@ -11,7 +11,7 @@ import {
   Quote,
 } from 'lucide-react'
 import { Container, Reveal, SectionHead, Eyebrow, ArrowLink } from '../lib/ui'
-import { DOORS, PILLARS, PROOF, GROUP, ARTICLES, PARTNER_TRACKS, ETHICS } from '../lib/content'
+import { DOORS, PILLARS, PROOF, ECOSYSTEM, ARTICLES, PARTNER_TRACKS, ETHICS } from '../lib/content'
 import Flywheel from '../components/Flywheel'
 import CTABand from '../components/CTABand'
 import Figure from '../components/Figure'
@@ -331,12 +331,16 @@ function GroupSection() {
       <Container>
         <SectionHead
           align="center"
-          eyebrow="The Trueline Group"
-          title={<>One engine. Three entities. A flywheel.</>}
+          eyebrow="The Trueline Group Ecosystem"
+          title={<>One ecosystem. Five entities. One flywheel.</>}
           intro="A researcher who enters through Research can publish through Publishers and commercialize through StartNet — the one-stop story competitors can’t match."
         />
         <div className="mt-16">
-          <Flywheel />
+          <Flywheel
+            data={ECOSYSTEM}
+            wrap
+            core={{ title: 'TRUELINE\nGROUP', subtitle: 'Research • Publishing • Innovation' }}
+          />
         </div>
       </Container>
     </section>

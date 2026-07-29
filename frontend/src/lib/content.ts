@@ -254,6 +254,50 @@ export const GROUP = [
   },
 ]
 
+// ── The Trueline Group Ecosystem (5-entity flywheel) ──────────────────────
+export const ECOSYSTEM = [
+  {
+    id: 'research',
+    name: 'Trueline Research',
+    short: 'Generates',
+    role: 'Generates the output',
+    body: 'Research enablement and CRO-lite services supporting biomedical sciences, life sciences, engineering, technology, management, humanities, and multidisciplinary research through mentoring, biostatistics, bioinformatics, academic consulting, and institutional Centre-of-Excellence programs.',
+    output: 'Generates credible research, manuscripts, datasets, and innovation.',
+  },
+  {
+    id: 'publishers',
+    name: 'Trueline Publishers',
+    short: 'Credentializes',
+    role: 'Credentializes it',
+    body: 'Integrity-first academic publishing through peer-reviewed journals, books, conference proceedings, Trueline Spectrum, DOI support, editorial excellence, indexing guidance, and professional publishing services.',
+    output: 'Builds credibility, global visibility, indexing, and long-term publishing value.',
+  },
+  {
+    id: 'spectrum',
+    name: 'Trueline Spectrum',
+    short: 'Amplifies',
+    role: 'Amplifies knowledge',
+    body: 'A platform that promotes research visibility through articles, news, academic insights, interviews, institutional stories, conference highlights, and scientific communication.',
+    output: 'Expands research impact and community engagement.',
+  },
+  {
+    id: 'jaeid',
+    name: 'JAEID',
+    short: 'Publishes',
+    role: 'Publishes research',
+    body: 'An international peer-reviewed journal publishing original research, review articles, and case studies across biomedical sciences, life sciences, engineering, technology, healthcare, management, and multidisciplinary research through a rigorous double-blind peer-review process.',
+    output: 'High-quality scholarly publishing with ethical peer review and global accessibility.',
+  },
+  {
+    id: 'startnet',
+    name: 'StartNet',
+    short: 'Innovates',
+    role: 'Drives innovation',
+    body: 'Innovation ecosystem connecting startups, researchers, academic institutions, incubation centres, conferences, hackathons, industry collaborations, and entrepreneurship initiatives.',
+    output: 'Converts ideas into collaborations, events, and impactful research outcomes.',
+  },
+]
+
 // ── Research Enablement services ──────────────────────────────────────────
 export const ENABLEMENT_SERVICES = [
   {

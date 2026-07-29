@@ -29,7 +29,7 @@ export default function About() {
                 <img
                   src={ceoImage}
                   alt="Dr. V. NAGARAJ"
-                  className="w-full h-[450px] object-cover object-top rounded-3xl shadow-lg"
+                  className="w-full h-[450px] object-cover object-[center_20%] rounded-3xl shadow-lg"
                 />
               </Reveal>
             </div>

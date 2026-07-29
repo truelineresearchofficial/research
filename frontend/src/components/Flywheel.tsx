@@ -1,16 +1,30 @@
 import { useState } from 'react'
+import type { ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import { GROUP } from '../lib/content'
 
-// A circular flywheel: three entities orbit a shared core (Data · IP ·
-// Reputation). Hovering a node lifts its detail. The 100+ college network
-// feeds in; GCC / Gulf / venture scale out.
+// A circular flywheel: entities orbit a shared core. Hovering a node lifts its
+// detail. By default it renders the three-entity Trueline Group (used on the
+// About page); pass `data` / `core` / `wrap` to render the five-entity
+// Trueline Group Ecosystem on the Home page. The layout, spacing, connecting
+// lines, hover / active states and animations stay identical across both.
 
-const NODES = [
-  { ...GROUP[0], angle: -90, color: '#0E8C7F' },
-  { ...GROUP[1], angle: 30, color: '#22C3C9' },
-  { ...GROUP[2], angle: 150, color: '#3E9BE8' },
-]
+type Entity = {
+  id: string
+  name: string
+  role: string
+  body: string
+  output: string
+  short?: string
+}
+
+type Core = { title: ReactNode; subtitle: string }
+
+// Colour palettes interpolated along the same teal → cyan → blue gradient.
+const PALETTES: Record<number, string[]> = {
+  3: ['#0E8C7F', '#22C3C9', '#3E9BE8'],
+  5: ['#0E8C7F', '#18A6A5', '#22C3C9', '#3E9BE8', '#6E7FE3'],
+}
 
 const R = 132
 const C = 200
@@ -20,8 +34,22 @@ function pos(angle: number) {
   return { x: C + R * Math.cos(rad), y: C + R * Math.sin(rad) }
 }
 
-export default function Flywheel() {
+type FlywheelProps = {
+  data?: Entity[]
+  core?: Core
+  wrap?: boolean
+}
+
+export default function Flywheel({ data = GROUP, core, wrap = false }: FlywheelProps) {
   const [active, setActive] = useState(0)
+
+  const count = data.length
+  const palette = PALETTES[count] ?? PALETTES[3]
+  const NODES = data.map((d, i) => ({
+    ...d,
+    angle: -90 + (360 / count) * i,
+    color: palette[i % palette.length],
+  }))
 
   return (
     <div className="grid items-center gap-10 lg:grid-cols-2">
@@ -53,7 +81,7 @@ export default function Flywheel() {
           {/* connecting curved arrows between nodes */}
           {NODES.map((n, i) => {
             const a = pos(n.angle)
-            const b = pos(NODES[(i + 1) % 3].angle)
+            const b = pos(NODES[(i + 1) % count].angle)
             return (
               <path
                 key={i}
@@ -68,12 +96,33 @@ export default function Flywheel() {
 
           {/* core */}
           <circle cx={C} cy={C} r="46" fill="#0A1A26" />
-          <text x={C} y={C - 6} textAnchor="middle" className="fill-white" style={{ fontSize: 12, fontWeight: 600 }}>
-            DATA · IP
-          </text>
-          <text x={C} y={C + 12} textAnchor="middle" className="fill-white/60" style={{ fontSize: 10 }}>
-            REPUTATION
-          </text>
+          {core ? (
+            <foreignObject x={C - 42} y={C - 34} width={84} height={68}>
+              <div className="flex h-full w-full flex-col items-center justify-center text-center leading-tight">
+                <span
+                  className="whitespace-pre-line break-words font-semibold text-white"
+                  style={{ fontSize: 11, lineHeight: 1.05 }}
+                >
+                  {core.title}
+                </span>
+                <span
+                  className="mt-1 whitespace-normal break-words text-white/60"
+                  style={{ fontSize: 7, lineHeight: 1.15 }}
+                >
+                  {core.subtitle}
+                </span>
+              </div>
+            </foreignObject>
+          ) : (
+            <>
+              <text x={C} y={C - 6} textAnchor="middle" className="fill-white" style={{ fontSize: 12, fontWeight: 600 }}>
+                DATA · IP
+              </text>
+              <text x={C} y={C + 12} textAnchor="middle" className="fill-white/60" style={{ fontSize: 10 }}>
+                REPUTATION
+              </text>
+            </>
+          )}
 
           {/* nodes */}
           {NODES.map((n, i) => {
@@ -96,18 +145,39 @@ export default function Flywheel() {
                   animate={{ r: on ? 42 : 38 }}
                 />
                 <circle cx={p.x} cy={p.y} r="6" fill={n.color} transform={`translate(0 -16)`} />
-                <text
-                  x={p.x}
-                  y={p.y + 4}
-                  textAnchor="middle"
-                  className="fill-ink"
-                  style={{ fontSize: 10.5, fontWeight: 600 }}
-                >
-                  {n.name.replace('Trueline ', '')}
-                </text>
-                <text x={p.x} y={p.y + 18} textAnchor="middle" className="fill-ink-faint" style={{ fontSize: 8 }}>
-                  {n.role.split(' ')[0]}
-                </text>
+                {wrap ? (
+                  <foreignObject x={p.x - 34} y={p.y - 10} width={68} height={44}>
+                    <div className="flex h-full w-full flex-col items-center justify-center text-center leading-tight">
+                      <span
+                        className="whitespace-normal break-words font-semibold text-ink"
+                        style={{ fontSize: 9.5, lineHeight: 1.05 }}
+                      >
+                        {n.name}
+                      </span>
+                      <span
+                        className="whitespace-normal break-words text-ink-faint"
+                        style={{ fontSize: 7.5, lineHeight: 1.1 }}
+                      >
+                        {n.short ?? n.role.split(' ')[0]}
+                      </span>
+                    </div>
+                  </foreignObject>
+                ) : (
+                  <>
+                    <text
+                      x={p.x}
+                      y={p.y + 4}
+                      textAnchor="middle"
+                      className="fill-ink"
+                      style={{ fontSize: 10.5, fontWeight: 600 }}
+                    >
+                      {n.name.replace('Trueline ', '')}
+                    </text>
+                    <text x={p.x} y={p.y + 18} textAnchor="middle" className="fill-ink-faint" style={{ fontSize: 8 }}>
+                      {n.role.split(' ')[0]}
+                    </text>
+                  </>
+                )}
               </g>
             )
           })}
