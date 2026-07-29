@@ -13,15 +13,15 @@ const CONTACT_CARDS: { icon: LucideIcon; title: string; subtitle: string; href: 
   {
     icon: MessageCircle,
     title: 'WhatsApp us directly',
-    subtitle: 'Chat with our publishing team',
+    subtitle: 'Chat with our research team',
     href: 'https://wa.me/message/7NHZKTMAKDIWJ1',
     external: true,
   },
   {
     icon: Mail,
-    title: 'info@truelinepublisher.in',
-    subtitle: 'Email our publishing team',
-    href: 'mailto:info@truelinepublisher.in',
+    title: 'info@truelineresearch.in',
+    subtitle: 'Email our research team',
+    href: 'mailto:info@truelineresearch.in',
   },
   {
     icon: Phone,
@@ -104,7 +104,7 @@ export default function Contact() {
           <div>
             <h2 className="font-display text-2xl font-semibold text-ink">Reach us directly</h2>
             <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
-              Have questions? Connect with our publishing team through WhatsApp, email, or phone. We usually respond
+              Have questions? Connect with our research team through WhatsApp, email, or phone. We usually respond
               within one business day.
             </p>
 

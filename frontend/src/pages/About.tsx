@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ShieldCheck, Target, Compass, BookOpen, Rocket, ArrowRight } from 'lucide-react'
+import { ShieldCheck, Target, Compass, BookOpen, Rocket, ArrowRight, Linkedin, Instagram, Facebook, MessageCircle, Phone } from 'lucide-react'
 import { Container, Reveal, SectionHead, Eyebrow } from '../lib/ui'
 import { ETHICS, GROUP, PROOF, BRAND } from '../lib/content'
 import PageHero from '../components/PageHero'
@@ -7,6 +7,7 @@ import Flywheel from '../components/Flywheel'
 import CTABand from '../components/CTABand'
 import Figure from '../components/Figure'
 import { IMG } from '../lib/images'
+import ceoImage from '../assets/images/ceo.jpg'
 
 export default function About() {
   return (
@@ -18,6 +19,106 @@ export default function About() {
         cta={{ label: 'Get Started', to: '/contact' }}
         image={IMG.teamLaptops}
       />
+
+      {/* CEO Message */}
+      <section id="ceo-message" className="bg-canvas py-24 scroll-mt-24">
+        <Container>
+          <div className="grid items-center gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-5">
+              <Reveal>
+                <img
+                  src={ceoImage}
+                  alt="Dr. V. NAGARAJ"
+                  className="w-full h-[450px] object-cover object-top rounded-3xl shadow-lg"
+                />
+              </Reveal>
+            </div>
+            <div className="lg:col-span-7">
+              <Eyebrow>Leadership</Eyebrow>
+              <h2 className="display mt-5 text-[clamp(1.8rem,4vw,2.8rem)] text-balance">
+                CEO Message
+              </h2>
+              <p className="mt-5 font-display text-lg font-semibold text-ink">Dr. V. NAGARAJ</p>
+              <div className="prose-tl space-y-4 mt-4 max-w-2xl">
+                <p>
+                  At Trueline Research, our mission is to advance knowledge, foster innovation, and
+                  empower researchers through high-quality research support and academic excellence.
+                  For more than 13+ years, we have collaborated with researchers, universities,
+                  startups, and industries, contributing to 1,500+ research publications, 200+
+                  patents, 200+ books, and 150+ academic collaborations, while supporting thousands
+                  of students, faculty members, and research professionals in achieving their
+                  academic and innovation goals.
+                </p>
+                <p>
+                  We believe that every research idea has the potential to create meaningful impact.
+                  Our dedicated team provides comprehensive research solutions, including research
+                  publication support, patent assistance, journal guidance, conference management,
+                  plagiarism screening, research consulting, and innovation support, ensuring that
+                  every researcher receives ethical, reliable, and professional assistance
+                  throughout their research journey.
+                </p>
+                <p>
+                  As we continue to grow, our vision remains clear—to build a globally recognized
+                  research ecosystem that bridges academia, industry, innovation, artificial
+                  intelligence, and emerging technologies. Through collaboration, integrity, and
+                  excellence, we are committed to helping researchers, institutions, and
+                  organizations transform ideas into impactful research and real-world solutions.
+                </p>
+              </div>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <a
+                  href="https://www.linkedin.com/in/nagaraj-varatharaj"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  title="LinkedIn"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-line bg-white text-ink-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-300 hover:text-brand-600 hover:shadow-card"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/nagaraj_varatharaj?igsh=NXR2N2JybDlicDR2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  title="Instagram"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-line bg-white text-ink-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-300 hover:text-brand-600 hover:shadow-card"
+                >
+                  <Instagram className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.facebook.com/nagaraj.varatharaj.3"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  title="Facebook"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-line bg-white text-ink-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-300 hover:text-brand-600 hover:shadow-card"
+                >
+                  <Facebook className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://wa.me/message/7NHZKTMAKDIWJ1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp"
+                  title="WhatsApp"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-line bg-white text-ink-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-300 hover:text-brand-600 hover:shadow-card"
+                >
+                  <MessageCircle className="h-5 w-5" />
+                </a>
+                <a
+                  href="tel:+919578873584"
+                  aria-label="Call 95788 73584"
+                  title="95788 73584"
+                  className="grid h-11 w-11 place-items-center rounded-full border border-line bg-white text-ink-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-300 hover:text-brand-600 hover:shadow-card"
+                >
+                  <Phone className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
 
       {/* Who we are */}
       <section id="who" className="py-24 scroll-mt-24">

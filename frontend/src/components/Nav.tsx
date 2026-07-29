@@ -53,7 +53,7 @@ export default function Nav() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 6 }}
                     transition={{ duration: 0.18 }}
-                    className="absolute right-0 top-full w-72 overflow-hidden rounded-2xl border border-line bg-white p-2 text-ink shadow-card-lg"
+                    className="absolute right-0 top-full z-[60] mt-1 w-72 overflow-hidden rounded-2xl border border-line bg-white p-2 text-ink shadow-card-lg"
                   >
                     {GROUP_LINKS.map((g) => (
                       <Link
