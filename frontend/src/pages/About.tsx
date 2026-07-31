@@ -1,4 +1,6 @@
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useReducedMotion } from 'framer-motion'
 import { ShieldCheck, Target, Compass, BookOpen, Rocket, ArrowRight, Linkedin, Instagram, Facebook, MessageCircle, Phone } from 'lucide-react'
 import { Container, Reveal, SectionHead, Eyebrow } from '../lib/ui'
 import { ETHICS, GROUP, PROOF, BRAND } from '../lib/content'
@@ -8,6 +10,57 @@ import CTABand from '../components/CTABand'
 import Figure from '../components/Figure'
 import { IMG } from '../lib/images'
 import ceoImage from '../assets/images/ceo.jpg'
+
+const IMPACT_STATS = [
+  { value: 15000, title: ['Students Trained through', 'Workshops & Skill Development'] },
+  { value: 5000, title: ['Faculty Trained through', 'Workshops & FDPs'] },
+  { value: 200, title: ['Academic Books', 'Published Worldwide'] },
+  { value: 200, title: ['IPRs – Patents, Trademarks,', 'Copyrights & Industrial Designs'] },
+  { value: 100, title: ['Startups Mentored through', 'Incubation & Acceleration'] },
+  { value: 20, title: ['Industry Partners Empowered with', 'AI, LLM, CRM & Digital Solutions'] },
+  { value: 1500, title: ['Research Publications Driving', 'Science & Innovation'] },
+]
+
+/** Counts up from 0 to `value` once, when scrolled into view. Respects reduced-motion. */
+function CountUp({ value, duration = 1800 }: { value: number; duration?: number }) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const [display, setDisplay] = useState(0)
+  const reduce = useReducedMotion()
+
+  useEffect(() => {
+    if (reduce) {
+      setDisplay(value)
+      return
+    }
+    const el = ref.current
+    if (!el) return
+
+    let raf = 0
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+        observer.disconnect()
+        const start = performance.now()
+        const tick = (now: number) => {
+          const p = Math.min((now - start) / duration, 1)
+          const eased = 1 - Math.pow(1 - p, 3) // easeOutCubic
+          setDisplay(Math.round(eased * value))
+          if (p < 1) raf = requestAnimationFrame(tick)
+        }
+        raf = requestAnimationFrame(tick)
+      },
+      { threshold: 0.4 },
+    )
+    observer.observe(el)
+
+    return () => {
+      observer.disconnect()
+      cancelAnimationFrame(raf)
+    }
+  }, [value, duration, reduce])
+
+  return <span ref={ref}>{display.toLocaleString('en-US')}</span>
+}
 
 export default function About() {
   return (
@@ -29,7 +82,7 @@ export default function About() {
                 <img
                   src={ceoImage}
                   alt="Dr. V. NAGARAJ"
-                  className="w-full h-[450px] object-cover object-[center_20%] rounded-3xl shadow-lg"
+                  className="w-full h-[450px] object-cover object-top rounded-3xl shadow-lg"
                 />
               </Reveal>
             </div>
@@ -41,28 +94,13 @@ export default function About() {
               <p className="mt-5 font-display text-lg font-semibold text-ink">Dr. V. NAGARAJ</p>
               <div className="prose-tl space-y-4 mt-4 max-w-2xl">
                 <p>
-                  At Trueline Research, our mission is to advance knowledge, foster innovation, and
-                  empower researchers through high-quality research support and academic excellence.
-                  For more than 13+ years, we have collaborated with researchers, universities,
-                  startups, and industries, contributing to 1,500+ research publications, 200+
-                  patents, 200+ books, and 150+ academic collaborations, while supporting thousands
-                  of students, faculty members, and research professionals in achieving their
-                  academic and innovation goals.
+                  At Trueline Research, we are committed to advancing research, innovation, and technology through our AI Multidisciplinary Research Labs Centers of Excellence (CoE), and R&D ecosystem. With 13+ years of excellence, we have supported 1,500+ research publications, 200+ patents, 200+ books, and 150+ academic collaborations, empowering researchers, academic institutions, startups, and industries to achieve global impact.
                 </p>
                 <p>
-                  We believe that every research idea has the potential to create meaningful impact.
-                  Our dedicated team provides comprehensive research solutions, including research
-                  publication support, patent assistance, journal guidance, conference management,
-                  plagiarism screening, research consulting, and innovation support, ensuring that
-                  every researcher receives ethical, reliable, and professional assistance
-                  throughout their research journey.
+                  We transform Ideas into Products by providing end-to-end support in research publications, research funding, patents, trademarks, copyrights (IPR), technology commercialization, startup incubation, innovation consulting, and industry-driven R&D. We also encourage participation in hackathons, innovation challenges, and entrepreneurship programs, enabling researchers and innovators to develop future-ready technologies and sustainable solutions.
                 </p>
                 <p>
-                  As we continue to grow, our vision remains clear—to build a globally recognized
-                  research ecosystem that bridges academia, industry, innovation, artificial
-                  intelligence, and emerging technologies. Through collaboration, integrity, and
-                  excellence, we are committed to helping researchers, institutions, and
-                  organizations transform ideas into impactful research and real-world solutions.
+                  Through International University Collaborations and Academia–Industry Partnerships, we continue to build a globally connected innovation ecosystem that promotes knowledge creation, protects intellectual property, accelerates commercialization, and delivers impactful solutions for society.
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -120,6 +158,40 @@ export default function About() {
         </Container>
       </section>
 
+      {/* Our Impact — statistic cards */}
+      <section id="our-impact" className="py-24 scroll-mt-24">
+        <Container>
+          <SectionHead
+            align="center"
+            eyebrow="Our Impact"
+            title={<>We are proud of...</>}
+            intro="Empowering researchers, institutions, startups, and industries through innovation, research excellence, intellectual property, and strategic collaboration."
+          />
+          <div className="mt-14 flex flex-wrap justify-center gap-5">
+            {IMPACT_STATS.map((s, i) => (
+              <Reveal
+                key={i}
+                delay={(i % 4) * 0.07}
+                className="flex w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(25%-0.9375rem)]"
+              >
+                <div className="flex h-full w-full flex-col items-center justify-center rounded-3xl border border-line bg-white p-8 text-center shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-lg">
+                  <div className="font-display text-4xl font-semibold sm:text-5xl">
+                    <span className="text-spectrum">
+                      <CountUp value={s.value} />+
+                    </span>
+                  </div>
+                  <p className="mt-4 whitespace-nowrap font-display text-xs font-semibold leading-relaxed text-ink">
+                    {s.title[0]}
+                    <br />
+                    {s.title[1]}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* Who we are */}
       <section id="who" className="py-24 scroll-mt-24">
         <Container>
@@ -139,7 +211,7 @@ export default function About() {
                 <p>
                   Our North Star is simple: turn a 100+ college network across South India into a
                   durable machine for <strong className="text-ink">talent, data and intellectual
-                  property</strong> — delivered through three tightly-coupled entities that feed each
+                    property</strong> — delivered through three tightly-coupled entities that feed each
                   other.
                 </p>
               </div>

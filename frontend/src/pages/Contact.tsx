@@ -6,7 +6,14 @@ import type { LucideIcon } from 'lucide-react'
 import { Container, Reveal, Eyebrow } from '../lib/ui'
 import { CONTACT_FORMS, OFFICE_LOCATIONS } from '../lib/content'
 import { Molecule } from '../components/Marks'
-import { submitForm, SubmitError } from '../lib/submit'
+import { submitForm, SubmitError, APPS_SCRIPT_URL } from '../lib/submit'
+
+// Map the internal form ids to the formType values the Apps Script expects.
+const FORM_TYPE: Record<string, string> = {
+  scholar: 'scholars',
+  college: 'colleges',
+  institution: 'gcc',
+}
 
 // Direct-contact cards shown alongside the consultation form.
 const CONTACT_CARDS: { icon: LucideIcon; title: string; subtitle: string; href: string; external?: boolean }[] = [
@@ -66,7 +73,10 @@ export default function Contact() {
     setSubmitting(true)
     setError(null)
     try {
-      await submitForm({ form_type: 'contact', variant: form.id, website: hp, ...values })
+      await submitForm(
+        { formType: FORM_TYPE[form.id], variant: form.id, website: hp, ...values },
+        { endpoint: APPS_SCRIPT_URL, contentType: 'text/plain;charset=utf-8' },
+      )
       setSent(true)
     } catch (err) {
       setError(err instanceof SubmitError ? err.message : 'Something went wrong. Please try again.')
@@ -99,16 +109,16 @@ export default function Contact() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid items-start gap-8 md:grid-cols-2 lg:gap-12">
+        <div className="mt-12 grid items-stretch gap-8 md:grid-cols-[42fr_58fr] lg:gap-8">
           {/* Left — reach us directly */}
-          <div>
+          <div className="flex h-full flex-col">
             <h2 className="font-display text-2xl font-semibold text-ink">Reach us directly</h2>
             <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
               Have questions? Connect with our research team through WhatsApp, email, or phone. We usually respond
               within one business day.
             </p>
 
-            <div className="mt-8 space-y-4">
+            <div className="mt-8 flex flex-1 flex-col justify-between gap-4">
               {CONTACT_CARDS.map((c) => (
                 <a
                   key={c.title}
@@ -189,6 +199,7 @@ export default function Contact() {
                     />
                     {form.fields.map((field, i) => {
                       const key = form.keys[i]
+                      const placeholder = form.placeholders[i]
                       const isMessage = key === 'message'
                       return (
                         <div key={key} className={isMessage ? 'sm:col-span-2' : ''}>
@@ -200,15 +211,16 @@ export default function Contact() {
                               value={values[key] ?? ''}
                               onChange={(e) => setValues((v) => ({ ...v, [key]: e.target.value }))}
                               className="mt-1.5 w-full rounded-2xl border border-line-2 bg-canvas px-4 py-3 text-sm text-ink placeholder:text-ink-faint focus:border-brand-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-brand-50"
-                              placeholder="A sentence or two is plenty."
+                              placeholder={placeholder}
                             />
                           ) : (
                             <input
                               required
-                              type={key === 'email' ? 'email' : 'text'}
+                              type={key === 'email' ? 'email' : key === 'phone' ? 'tel' : 'text'}
                               value={values[key] ?? ''}
                               onChange={(e) => setValues((v) => ({ ...v, [key]: e.target.value }))}
                               className="mt-1.5 w-full rounded-full border border-line-2 bg-canvas px-4 py-3 text-sm text-ink placeholder:text-ink-faint focus:border-brand-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-brand-50"
+                              placeholder={placeholder}
                             />
                           )}
                         </div>
@@ -228,7 +240,7 @@ export default function Contact() {
                         disabled={submitting}
                         className="btn-brand h-12 w-full px-7 text-[15px] disabled:opacity-60 sm:w-auto"
                       >
-                        {submitting ? 'Sending…' : form.cta} <ArrowRight className="h-4 w-4" />
+                        {submitting ? 'Sending…' : 'Submit'} <ArrowRight className="h-4 w-4" />
                       </button>
                     </div>
                   </form>
