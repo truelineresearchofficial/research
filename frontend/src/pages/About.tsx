@@ -96,7 +96,7 @@ export default function About() {
               <p className="mt-5 font-display text-lg font-semibold text-ink">Dr. V. NAGARAJ</p>
               <div className="prose-tl space-y-4 mt-4 max-w-2xl">
                 <p>
-                  At Trueline Research, we are committed to advancing research, innovation, and technology through our AI Multidisciplinary Research Labs Centers of Excellence (CoE), and R&D ecosystem. With 13+ years of excellence, we have supported 1,500+ research publications, 200+ patents, 200+ books, and 150+ academic collaborations, empowering researchers, academic institutions, startups, and industries to achieve global impact.
+                  At Trueline Research, we are committed to advancing research, innovation, and technology through our AI Multidisciplinary Research Labs Centers of Excellence (CoE), and R&D ecosystem. With 13+ years of excellence, we have supported 1,500+ research publications, 250+ patents, 200+ books, and 150+ academic collaborations, empowering researchers, academic institutions, startups, and industries to achieve global impact.
                 </p>
                 <p>
                   We transform Ideas into Products by providing end-to-end support in research publications, research funding, patents, trademarks, copyrights (IPR), technology commercialization, startup incubation, innovation consulting, and industry-driven R&D. We also encourage participation in hackathons, innovation challenges, and entrepreneurship programs, enabling researchers and innovators to develop future-ready technologies and sustainable solutions.
