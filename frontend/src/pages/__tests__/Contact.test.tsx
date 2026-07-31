@@ -33,12 +33,12 @@ describe('Contact form', () => {
 
     renderContact()
     await fillAll(user)
-    await user.click(screen.getByRole('button', { name: /book a consultation/i }))
+    await user.click(screen.getByRole('button', { name: /submit/i }))
 
     await waitFor(() => expect(screen.getByText(/Thank you/i)).toBeInTheDocument())
     expect(fetchMock).toHaveBeenCalledOnce()
     const body = JSON.parse(fetchMock.mock.calls[0][1].body)
-    expect(body).toMatchObject({ form_type: 'contact', variant: 'scholar', email: 'a@b.com' })
+    expect(body).toMatchObject({ formType: 'scholars', variant: 'scholar', email: 'a@b.com' })
     expect(body.website).toBe('') // honeypot empty
   })
 
@@ -54,7 +54,7 @@ describe('Contact form', () => {
 
     renderContact()
     await fillAll(user)
-    await user.click(screen.getByRole('button', { name: /book a consultation/i }))
+    await user.click(screen.getByRole('button', { name: /submit/i }))
 
     await waitFor(() =>
       expect(screen.getByRole('alert')).toHaveTextContent('Too many submissions.'),
