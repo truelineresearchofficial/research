@@ -12,13 +12,15 @@ import { IMG } from '../lib/images'
 import ceoImage from '../assets/images/ceo.jpg'
 
 const IMPACT_STATS = [
+  { value: 150, title: ['Institutions & Universities', 'Enabled for Excellence & Collaboration'] },
+  { value: 100, title: ['Startups Mentored through', 'Incubation & Acceleration'] },
+  { value: 250, title: ['IPRs – Patents, Trademarks,', 'Copyrights & Industrial Designs'] },
+  { value: 20, title: ['Industry Partners Empowered with', 'AI, LLM, CRM & Digital Solutions'] },
+  { value: 200, title: ['Academic Books', 'Published Worldwide'] },
   { value: 15000, title: ['Students Trained through', 'Workshops & Skill Development'] },
   { value: 5000, title: ['Faculty Trained through', 'Workshops & FDPs'] },
-  { value: 200, title: ['Academic Books', 'Published Worldwide'] },
-  { value: 200, title: ['IPRs – Patents, Trademarks,', 'Copyrights & Industrial Designs'] },
-  { value: 100, title: ['Startups Mentored through', 'Incubation & Acceleration'] },
-  { value: 20, title: ['Industry Partners Empowered with', 'AI, LLM, CRM & Digital Solutions'] },
   { value: 1500, title: ['Research Publications Driving', 'Science & Innovation'] },
+  { value: 60, title: ['Scientific Progress Through', 'Conferences & Publications'] },
 ]
 
 /** Counts up from 0 to `value` once, when scrolled into view. Respects reduced-motion. */
@@ -164,15 +166,15 @@ export default function About() {
           <SectionHead
             align="center"
             eyebrow="Our Impact"
-            title={<>We are proud of...</>}
-            intro="Empowering researchers, institutions, startups, and industries through innovation, research excellence, intellectual property, and strategic collaboration."
+            title={<>We Are Proud Of...</>}
+            intro="Driving research, innovation, academic excellence, and industry collaboration through measurable achievements."
           />
           <div className="mt-14 flex flex-wrap justify-center gap-5">
             {IMPACT_STATS.map((s, i) => (
               <Reveal
                 key={i}
                 delay={(i % 4) * 0.07}
-                className="flex w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(25%-0.9375rem)]"
+                className="flex w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(20%-1rem)]"
               >
                 <div className="flex h-full w-full flex-col items-center justify-center rounded-3xl border border-line bg-white p-8 text-center shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-lg">
                   <div className="font-display text-4xl font-semibold sm:text-5xl">
@@ -180,7 +182,7 @@ export default function About() {
                       <CountUp value={s.value} />+
                     </span>
                   </div>
-                  <p className="mt-4 whitespace-nowrap font-display text-xs font-semibold leading-relaxed text-ink">
+                  <p className="mt-4 whitespace-nowrap font-display text-[10px] font-semibold leading-relaxed text-ink">
                     {s.title[0]}
                     <br />
                     {s.title[1]}
