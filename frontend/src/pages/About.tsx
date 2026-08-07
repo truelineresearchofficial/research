@@ -81,11 +81,11 @@ export default function About() {
           <div className="grid items-center gap-12 lg:grid-cols-12">
             <div className="lg:col-span-5">
               <Reveal>
-                <img
-                  src={ceoImage}
-                  alt="Dr. V. NAGARAJ"
-                  className="w-full h-[450px] object-cover object-top rounded-3xl shadow-lg"
-                />
+              <img
+                src="https://drive.google.com/thumbnail?id=1SDQpMWYEwvXVfH9nH9vG8bNafOrTKUc7&sz=w1000"
+                alt="Dr. V. Nagaraj, Chief Executive Officer of Trueline Publishers"
+                className="w-full h-[450px] object-cover object-[center_20%] rounded-3xl shadow-lg"
+              />
               </Reveal>
             </div>
             <div className="lg:col-span-7">

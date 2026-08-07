@@ -62,6 +62,11 @@ export default function Flywheel({ data = GROUP, core, wrap = false }: FlywheelP
               <stop offset="0.5" stopColor="#22C3C9" />
               <stop offset="1" stopColor="#3E9BE8" />
             </linearGradient>
+            <linearGradient id="fwcore" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stopColor="#F4FFFE" />
+              <stop offset="0.5" stopColor="#E6F8F7" />
+              <stop offset="1" stopColor="#D7F3F1" />
+            </linearGradient>
           </defs>
 
           {/* orbit ring */}
@@ -95,21 +100,15 @@ export default function Flywheel({ data = GROUP, core, wrap = false }: FlywheelP
           })}
 
           {/* core */}
-          <circle cx={C} cy={C} r="46" fill="#0A1A26" />
+          <circle cx={C} cy={C} r="46" fill={core ? 'url(#fwcore)' : '#0A1A26'} />
           {core ? (
             <foreignObject x={C - 42} y={C - 34} width={84} height={68}>
               <div className="flex h-full w-full flex-col items-center justify-center text-center leading-tight">
                 <span
-                  className="whitespace-pre-line break-words font-semibold text-white"
-                  style={{ fontSize: 11, lineHeight: 1.05 }}
+                  className="whitespace-pre-line break-words font-semibold"
+                  style={{ fontSize: 11, lineHeight: 1.05, color: '#0F172A' }}
                 >
                   {core.title}
-                </span>
-                <span
-                  className="mt-1 whitespace-normal break-words text-white/60"
-                  style={{ fontSize: 7, lineHeight: 1.15 }}
-                >
-                  {core.subtitle}
                 </span>
               </div>
             </foreignObject>
@@ -153,12 +152,6 @@ export default function Flywheel({ data = GROUP, core, wrap = false }: FlywheelP
                         style={{ fontSize: 9.5, lineHeight: 1.05 }}
                       >
                         {n.name}
-                      </span>
-                      <span
-                        className="whitespace-normal break-words text-ink-faint"
-                        style={{ fontSize: 7.5, lineHeight: 1.1 }}
-                      >
-                        {n.short ?? n.role.split(' ')[0]}
                       </span>
                     </div>
                   </foreignObject>

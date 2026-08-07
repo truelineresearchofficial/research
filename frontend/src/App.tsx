@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -28,14 +28,43 @@ function ScrollManager() {
   return null
 }
 
+// Production origin Google indexes. Canonical URLs must always point here so the
+// homepage resolves to "https://www.truelineresearch.in/" — never "/home".
+const SITE_URL = 'https://www.truelineresearch.in'
+
+// Keeps <link rel="canonical"> in sync with the current route on every client-side
+// navigation. Each path maps to exactly one canonical URL, preventing duplicate
+// indexing (e.g. a stale /home ever being treated as a separate page).
+function CanonicalManager() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    // normalise: strip a trailing slash except for the root path
+    const clean = pathname !== '/' && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname
+    const href = clean === '/' ? `${SITE_URL}/` : `${SITE_URL}${clean}`
+
+    let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
+    if (!link) {
+      link = document.createElement('link')
+      link.rel = 'canonical'
+      document.head.appendChild(link)
+    }
+    link.href = href
+  }, [pathname])
+  return null
+}
+
 export default function App() {
   return (
     <div className="flex min-h-screen flex-col">
       <ScrollManager />
+      <CanonicalManager />
       <Nav />
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
+          {/* Legacy path: 301 handled by nginx for direct hits; this covers
+              client-side navigation so /home never renders the 404 page. */}
+          <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="/about" element={<About />} />
           <Route path="/research-enablement" element={<Enablement />} />
           <Route path="/centers-of-excellence" element={<CoE />} />
