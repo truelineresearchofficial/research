@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom'
 import { useReducedMotion } from 'framer-motion'
 import { ShieldCheck, Target, Compass, BookOpen, Rocket, ArrowRight, Linkedin, Instagram, Facebook, MessageCircle, Phone } from 'lucide-react'
 import { Container, Reveal, SectionHead, Eyebrow } from '../lib/ui'
-import { ETHICS, GROUP, PROOF, BRAND } from '../lib/content'
+import { ETHICS, PROOF, BRAND } from '../lib/content'
 import PageHero from '../components/PageHero'
-import Flywheel from '../components/Flywheel'
 import CTABand from '../components/CTABand'
 import Figure from '../components/Figure'
 import { IMG } from '../lib/images'
@@ -96,7 +95,8 @@ export default function About() {
               <p className="mt-5 font-display text-lg font-semibold text-ink">Dr. V. NAGARAJ</p>
               <div className="prose-tl space-y-4 mt-4 max-w-2xl">
                 <p>
-                  At Trueline Research, we are committed to advancing research, innovation, and technology through our AI Multidisciplinary Research Labs Centers of Excellence (CoE), and R&D ecosystem. With 13+ years of excellence, we have supported 1,500+ research publications, 250+ patents, 200+ books, and 150+ academic collaborations, empowering researchers, academic institutions, startups, and industries to achieve global impact.
+                  <strong>M.E., M.B.A., Ph.D. from Anna University and Post Doctorate Fellowship from University of South Florida (USA).</strong> With over <strong>13 years of experience</strong> in academic publishing, research, and innovation, I founded
+                  <strong>Trueline Research  in 2019</strong>, we are committed to advancing research, innovation, and technology through our AI Multidisciplinary Research Labs Centers of Excellence (CoE), and R&D ecosystem. With 13+ years of excellence,<strong> we have supported 1,500+ research publications, 250+ patents, 200+ books, and 150+ academic collaborations, empowering researchers, academic institutions, startups, and industries to achieve global impact.</strong>
                 </p>
                 <p>
                   We transform Ideas into Products by providing end-to-end support in research publications, research funding, patents, trademarks, copyrights (IPR), technology commercialization, startup incubation, innovation consulting, and industry-driven R&D. We also encourage participation in hackathons, innovation challenges, and entrepreneurship programs, enabling researchers and innovators to develop future-ready technologies and sustainable solutions.
@@ -276,32 +276,6 @@ export default function About() {
                 </ul>
               </div>
             </Reveal>
-          </div>
-        </Container>
-      </section>
-
-      {/* Group / flywheel */}
-      <section id="group" className="py-24 scroll-mt-24">
-        <Container>
-          <SectionHead
-            align="center"
-            eyebrow="The Trueline Group"
-            title={<>Research. Publishers. StartNet.</>}
-            intro="Three entities, one flywheel. Each feeds the others a shared core of data, IP and reputation."
-          />
-          <div className="mt-16">
-            <Flywheel />
-          </div>
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
-            {GROUP.map((g, i) => (
-              <Reveal key={g.id} delay={i * 0.08}>
-                <div className="h-full rounded-2xl border border-line bg-canvas p-6">
-                  <h3 className="font-display text-lg font-semibold text-ink">{g.name}</h3>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-brand-600">{g.role}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-ink-soft">{g.body}</p>
-                </div>
-              </Reveal>
-            ))}
           </div>
         </Container>
       </section>

@@ -64,9 +64,7 @@ function Hero() {
             </Reveal>
             <Reveal delay={0.12}>
               <p className="mt-7 max-w-xl text-xl leading-relaxed text-ink-soft text-pretty">
-                We make researchers capable, build Centers of Excellence inside colleges, and partner
-                with institutions across India and the Gulf — turning a 100+ college network into
-                talent, data, and intellectual property.
+                We make Researchers capable, build Centers of Excellence inside Colleges, and partner with Institutions across India — turning a 150+ College network into multidisciplinary Talent, Research, Data, and Intellectual Property with a strong focus on Product Development.
               </p>
             </Reveal>
             <Reveal delay={0.18}>
@@ -369,15 +367,15 @@ function PartnerTeaser() {
               <div className="flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white transition-all duration-300 hover:shadow-card">
                 <Figure img={PARTNER_IMG[i]} ratio="wide" rounded="rounded-none" scrim="soft" imgClassName="transition-transform duration-700 hover:scale-105" />
                 <div className="flex flex-1 flex-col p-8">
-                <h3 className="font-display text-xl font-medium text-ink">{t.name}</h3>
-                <p className="mt-3 flex-1 text-[15px] leading-relaxed text-ink-soft">{t.body}</p>
-                <ul className="mt-5 space-y-2">
-                  {t.points.map((pt) => (
-                    <li key={pt} className="flex items-center gap-2 text-sm text-ink">
-                      <span className="h-1.5 w-1.5 rounded-full bg-brand-400" /> {pt}
-                    </li>
-                  ))}
-                </ul>
+                  <h3 className="font-display text-xl font-medium text-ink">{t.name}</h3>
+                  <p className="mt-3 flex-1 text-[15px] leading-relaxed text-ink-soft">{t.body}</p>
+                  <ul className="mt-5 space-y-2">
+                    {t.points.map((pt) => (
+                      <li key={pt} className="flex items-center gap-2 text-sm text-ink">
+                        <span className="h-1.5 w-1.5 rounded-full bg-brand-400" /> {pt}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </Reveal>
@@ -452,17 +450,17 @@ function InsightsTeaser() {
               >
                 <Figure img={ARTICLE_IMG[i]} ratio="photo" rounded="rounded-none" imgClassName="transition-transform duration-700 group-hover:scale-105" />
                 <div className="flex flex-1 flex-col p-7">
-                <span className="self-start rounded-full bg-canvas px-3 py-1 text-xs font-semibold text-brand-600">
-                  {a.tag}
-                </span>
-                <h3 className="mt-5 flex-1 font-display text-lg font-medium leading-snug text-ink group-hover:text-brand-700">
-                  {a.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-ink-soft">{a.excerpt}</p>
-                <div className="mt-5 flex items-center justify-between border-t border-line pt-4 text-sm text-ink-faint">
-                  {a.read}
-                  <ArrowUpRight className="h-4 w-4 text-brand-500 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </div>
+                  <span className="self-start rounded-full bg-canvas px-3 py-1 text-xs font-semibold text-brand-600">
+                    {a.tag}
+                  </span>
+                  <h3 className="mt-5 flex-1 font-display text-lg font-medium leading-snug text-ink group-hover:text-brand-700">
+                    {a.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-ink-soft">{a.excerpt}</p>
+                  <div className="mt-5 flex items-center justify-between border-t border-line pt-4 text-sm text-ink-faint">
+                    {a.read}
+                    <ArrowUpRight className="h-4 w-4 text-brand-500 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </div>
                 </div>
               </Link>
             </Reveal>
