@@ -256,12 +256,12 @@ export default function Contact() {
             <Eyebrow className="justify-center">Our Offices</Eyebrow>
           </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="display mt-5 text-[clamp(2rem,4vw,3.2rem)] text-balance">Our Offices</h2>
+            <h2 className="display mt-5 text-[clamp(1.6rem,3.2vw,2.4rem)] text-balance">Our Offices</h2>
           </Reveal>
 
           {/* Headquarters */}
           <Reveal delay={0.1}>
-            <h3 className="mt-14 font-display text-sm font-semibold uppercase tracking-widest text-brand-600">
+            <h3 className="mt-14 font-display text-xs font-semibold uppercase tracking-widest text-brand-600">
               Headquarters
             </h3>
           </Reveal>
@@ -273,7 +273,7 @@ export default function Contact() {
 
           {/* Branch Offices */}
           <Reveal delay={0.15}>
-            <h3 className="mt-16 font-display text-sm font-semibold uppercase tracking-widest text-brand-600">
+            <h3 className="mt-16 font-display text-xs font-semibold uppercase tracking-widest text-brand-600">
               Branch Offices
             </h3>
           </Reveal>
@@ -303,21 +303,21 @@ function OfficeCard({
         <span className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-600">
           <MapPin className="h-6 w-6" />
         </span>
-        <h4 className="font-display text-xl md:text-2xl font-semibold text-ink md:whitespace-nowrap">
+        <h4 className="font-display text-lg md:text-xl font-semibold text-ink md:whitespace-nowrap">
           {office.title}
         </h4>
       </div>
-      {office.subtitle && <p className="mt-3 text-base font-semibold text-brand-600">
+      {office.subtitle && <p className="mt-3 text-sm font-semibold text-brand-600">
         {office.subtitle}
       </p>}
-      <p className="mt-4 text-[17px] leading-relaxed text-ink-soft">
+      <p className="mt-4 text-[15px] leading-relaxed text-ink-soft">
         {office.address.replace(/\n/g, ' ')}
       </p>
       <a
         href={office.mapUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="btn-brand mt-6 w-full sm:w-auto text-base"
+        className="btn-brand mt-6 w-full sm:w-auto text-sm"
       >
         <MapPin className="h-4 w-4" /> View on Google Maps
       </a>

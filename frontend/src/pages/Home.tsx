@@ -18,8 +18,8 @@ import Figure from '../components/Figure'
 import { IMG } from '../lib/images'
 import { HelixLines, Molecule } from '../components/Marks'
 
-const DOOR_ICONS = [Microscope, Building2, Globe2]
-const DOOR_IMG = [IMG.microplate, IMG.campusClassic, IMG.officeOpen]
+const DOOR_ICONS = [Building2, Globe2, Microscope]
+const DOOR_IMG = [IMG.campusClassic, IMG.officeOpen, IMG.microplate]
 const PARTNER_IMG = [IMG.officeOpen, IMG.dubaiSkyline, IMG.microscopes]
 const ARTICLE_IMG = [IMG.data, IMG.coins, IMG.neuron]
 
@@ -35,6 +35,9 @@ export default function Home() {
       <IntegritySection />
       <InsightsTeaser />
       <CTABand
+        eyebrow="Where knowledge becomes impact"
+        title="Build the future through research & innovation."
+        body="We support researchers, institutions and multidisciplinary teams in transforming knowledge into publications, innovation, intellectual property and practical products."
         primary={{ label: 'Get Started', to: '/contact' }}
         secondary={{ label: 'Explore the approach', to: '/about#approach' }}
       />
@@ -54,17 +57,17 @@ function Hero() {
         <div className="grid items-center gap-12 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <Reveal>
-              <Eyebrow>The research-enablement engine for life sciences</Eyebrow>
+              <Eyebrow>Multidisciplinary research &amp; product development</Eyebrow>
             </Reveal>
             <Reveal delay={0.06}>
               <h1 className="display mt-6 text-[clamp(2.7rem,6.2vw,4.7rem)] text-balance">
-                Enabling life-sciences research —{' '}
-                <span className="text-spectrum">from scholar to lab to industry.</span>
+                Where multidisciplinary research{' '}
+                <span className="text-spectrum">becomes meaningful impact.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12}>
               <p className="mt-7 max-w-xl text-xl leading-relaxed text-ink-soft text-pretty">
-                We make Researchers capable, build Centers of Excellence inside Colleges, and partner with Institutions across India — turning a 150+ College network into multidisciplinary Talent, Research, Data, and Intellectual Property with a strong focus on Product Development.
+                We make Researchers capable, build Centers of Excellence inside Colleges, and partner with Institutions across India — turning a College network into multidisciplinary Talent, Research, Data, and Intellectual Property with a strong focus on Idea to Product.
               </p>
             </Reveal>
             <Reveal delay={0.18}>
@@ -231,9 +234,9 @@ function Pillars() {
     <section className="py-24">
       <Container>
         <SectionHead
-          eyebrow="Three jobs, one engine"
+          eyebrow="Multidisciplinary research & innovation"
           title={<>Enable. Build. Partner.</>}
-          intro="Every part of Trueline maps to one of three pillars — the shape of how a credible life-sciences research engine compounds."
+          intro="We bring disciplines, researchers, faculty, students, institutions and industry together — turning multidisciplinary research and cross-disciplinary collaboration into innovation, emerging technology and real-world product development."
         />
         <div className="mt-14 grid gap-5 lg:grid-cols-3">
           {PILLARS.map((p, i) => (
@@ -287,9 +290,9 @@ function CoETeaser() {
             </h2>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/65">
               A Trueline Center of Excellence is a co-branded, asset-light lab — funded through
-              national grant schemes — that turns a campus into an engine for revenue, talent and
-              joint intellectual property. It’s the moat competitors in the PhD-help category can’t
-              build.
+              national grant schemes — that connects research infrastructure, faculty development,
+              student innovation, emerging technologies and industry collaboration, turning a campus
+              into an engine for talent, joint intellectual property and product development.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to="/centers-of-excellence" className="btn-brand h-12 px-7 text-[15px]">
@@ -352,9 +355,9 @@ function PartnerTeaser() {
       <Container>
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <SectionHead
-            eyebrow="The scale play"
-            title={<>Talent and research, at institutional scale.</>}
-            intro="Research-as-a-Service and a CoE-trained talent pipeline for global capability centres, Gulf institutions and industry."
+            eyebrow="Institutional research & innovation"
+            title={<>Research and innovation, at institutional scale.</>}
+            intro="We collaborate with colleges, universities and industry to strengthen multidisciplinary research, innovation, intellectual property and product development — and turn it into lasting institutional impact."
             className="md:max-w-xl"
           />
           <ArrowLink to="/partnerships" className="shrink-0 pb-2">
@@ -399,7 +402,7 @@ function IntegritySection() {
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-ink-soft">
               Our repositioning rests on one non-negotiable: we build the researcher’s capability and
-              the institution’s capacity. It’s what lets institutional and Gulf partners trust us — and
+              the institution’s capacity. It’s what lets institutional and industry partners trust us — and
               what survives investor and partner due diligence.
             </p>
             <Link to="/about#ethics" className="mt-8 inline-flex">
@@ -433,8 +436,9 @@ function InsightsTeaser() {
       <Container>
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <SectionHead
-            eyebrow="Insights & resources"
-            title={<>Field notes from the research engine.</>}
+            eyebrow="Research, publishing & visibility"
+            title={<>From research to visibility and impact.</>}
+            intro="Where research development meets ethical publishing, scholarly communication and global dissemination — the field notes that carry knowledge from the lab to the wider world."
             className="md:max-w-xl"
           />
           <ArrowLink to="/insights" className="shrink-0 pb-2">

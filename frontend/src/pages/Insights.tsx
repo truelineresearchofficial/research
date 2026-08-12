@@ -43,7 +43,7 @@ export default function Insights() {
       <PageHero
         eyebrow="Insights & Resources"
         title={<>Trueline Spectrum — field notes from the research engine.</>}
-        intro="The science-communication and credibility layer of the Trueline Group: methods, AI-in-research, CoE stories, and the data-moat thinking behind the strategy."
+        intro="Insights that connect research, innovation, intellectual property, startup creation and Idea to Product — for researchers, students, faculty, institutions and industry."
         image={IMG.dna}
       />
 
@@ -124,8 +124,8 @@ export default function Insights() {
                   Get the monthly research brief.
                 </h2>
                 <p className="mt-5 text-lg leading-relaxed text-white/65">
-                  Methods, funding deadlines, CoE stories and AI-in-research — for scholars, departments
-                  and partners across South India and the Gulf.
+                  Methods, funding deadlines, CoE stories and AI-in-research — for researchers, departments,
+                  institutions and industry across India.
                 </p>
               </div>
               <div>

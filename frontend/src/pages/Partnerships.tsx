@@ -13,10 +13,10 @@ export default function Partnerships() {
   return (
     <>
       <PageHero
-        audience="For institutions, GCCs & industry"
-        eyebrow="Partnerships & GCC"
-        title={<>Talent and research, at institutional scale.</>}
-        intro="An India-cost, English-language biomedical research partner — built on a consented, multi-college data network and a pipeline of CoE-trained graduates."
+        audience="For institutions, industry & innovation partners"
+        eyebrow="Partnerships & Institutional Collaboration"
+        title={<>Research and innovation partnerships, at institutional scale.</>}
+        intro="Build research and innovation partnerships that connect institutions, researchers, industry and startups to create measurable outcomes — from joint research and Research Labs to intellectual property, startup creation and Idea to Product."
         cta={{ label: 'Start a partnership', to: '/contact#institution' }}
         image={IMG.officeOpen}
       />
@@ -99,8 +99,8 @@ export default function Partnerships() {
                 <h3 className="mt-4 font-display text-2xl font-medium text-ink">CoE-trained graduates, ready for research roles.</h3>
                 <p className="mt-3 flex-1 text-[15px] leading-relaxed text-ink-soft">
                   Every Center of Excellence trains students on real, fundable research. That output
-                  becomes a vetted talent supply for the global capability centres clustering across
-                  South India.
+                  becomes a vetted talent supply for research institutions, industry and innovation
+                  ecosystems across India.
                 </p>
               </div>
             </Reveal>
@@ -124,7 +124,7 @@ export default function Partnerships() {
         </Container>
       </section>
 
-      {/* Gulf framing band */}
+      {/* Industry–academia collaboration band */}
       <section id="gulf" className="bg-canvas py-24 scroll-mt-24">
         <Container>
           <div className="overflow-hidden rounded-[2rem] border border-line bg-white p-10 shadow-card lg:p-14">
@@ -137,21 +137,21 @@ export default function Partnerships() {
             />
             <div className="grid items-center gap-10 lg:grid-cols-2">
               <div>
-                <Eyebrow>For Gulf institutions</Eyebrow>
+                <Eyebrow>Industry–academia collaboration</Eyebrow>
                 <h2 className="display mt-5 text-[clamp(1.8rem,4vw,2.7rem)] text-balance">
-                  A research-enablement partner for Vision 2030.
+                  From research capability to real-world product.
                 </h2>
                 <p className="mt-5 text-lg leading-relaxed text-ink-soft">
-                  Gulf universities and health institutions get research-enablement and publishing export
-                  framed for national strategy — an India-cost, English-language biomedical partner that
-                  builds local capability, not dependency.
+                  We connect institutions, researchers and industry so multidisciplinary research
+                  moves through innovation, intellectual property and startup creation to Idea to
+                  Product — building lasting research capability, not dependency.
                 </p>
               </div>
               <div className="grid gap-4">
                 {[
-                  { t: 'Capability building', b: 'Train local researchers and departments to standard.' },
-                  { t: 'Publishing export', b: 'Editorial and journal pathways through Trueline Publishers.' },
-                  { t: 'Joint programs', b: 'Co-designed CoEs and methodology cohorts on the ground.' },
+                  { t: 'Joint research', b: 'Co-designed research programs, Research Labs and methodology cohorts.' },
+                  { t: 'Intellectual property', b: 'Joint IP, technology development and licensing pathways.' },
+                  { t: 'Idea to Product', b: 'Startup creation and commercialization support through StartNet.' },
                 ].map((c, i) => (
                   <Reveal key={c.t} delay={i * 0.07}>
                     <div className="rounded-2xl border border-line bg-canvas p-6">
@@ -167,9 +167,9 @@ export default function Partnerships() {
       </section>
 
       <CTABand
-        eyebrow="For institutions & GCC"
+        eyebrow="For institutions & industry"
         title="Open a partnership conversation."
-        body="Tell us what you need to build — talent, research operations, or a Gulf collaboration — and we’ll scope a pilot."
+        body="Tell us what you need to build — talent, research operations, or an industry–academia collaboration — and we’ll scope a pilot."
         primary={{ label: 'Start a partnership', to: '/contact#institution' }}
         secondary={{ label: 'See the CoE network', to: '/centers-of-excellence' }}
       />

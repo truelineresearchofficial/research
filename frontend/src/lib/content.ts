@@ -13,7 +13,7 @@ export const BRAND = {
   group: 'Part of the Trueline Group',
 }
 
-export type NavLeaf = { label: string; to: string; note?: string }
+export type NavLeaf = { label: string; to: string; note?: string; external?: boolean }
 export type NavColumn = { heading: string; audience?: string; items: NavLeaf[] }
 export type NavItem = {
   label: string
@@ -30,16 +30,15 @@ export const NAV: NavItem[] = [
       {
         heading: 'The company',
         items: [
+          { label: 'Founder Message', to: '/about#founder-message', note: 'A message from the Founder of Trueline Research.' },
           { label: 'Who we are', to: '/about#who', note: 'Story, mission & philosophy' },
           { label: 'Our approach', to: '/about#approach', note: 'Enablement, not ghostwriting' },
           { label: 'Leadership & advisory', to: '/about#leadership', note: 'Biomedical & AI leaders' },
-          { label: 'Impact & numbers', to: '/about#impact', note: 'The verified scorecard' },
         ],
       },
       {
         heading: 'The Trueline Group',
         items: [
-          { label: 'The flywheel', to: '/about#group', note: 'Research · Publishers · StartNet' },
           { label: 'Ethics & Integrity Charter', to: '/about#ethics', note: 'Our non-negotiables' },
           { label: 'Careers', to: '/about#careers', note: 'Build the engine with us' },
         ],
@@ -121,8 +120,8 @@ export const NAV: NavItem[] = [
         heading: 'For institutions & industry',
         audience: 'The scale play',
         items: [
-          { label: 'Global Capability Centres (India)', to: '/partnerships#gcc', note: 'Talent + research ops + analytics' },
-          { label: 'Gulf institutions (GCC)', to: '/partnerships#gulf', note: 'Enablement & publishing export' },
+          { label: 'Institutions & universities', to: '/partnerships#gcc', note: 'Research capability · CoEs · joint IP' },
+          { label: 'Industry–academia collaboration', to: '/partnerships#gulf', note: 'Joint research · technology · IP' },
           { label: 'Industry & CROs', to: '/partnerships#industry', note: 'Pharma · biotech · medtech' },
         ],
       },
@@ -137,7 +136,7 @@ export const NAV: NavItem[] = [
     ],
     feature: {
       title: 'Start a partnership',
-      body: 'India-cost, English-language biomedical research operations — built on a consented, multi-college data network.',
+      body: 'Research and innovation partnerships that connect institutions, researchers, industry and startups — built on a consented, multi-college research network across India.',
       to: '/contact#institution',
       cta: 'Open a conversation',
     },
@@ -155,41 +154,41 @@ export const NAV: NavItem[] = [
 export const UTILITY_LINKS: NavLeaf[] = [
   { label: 'For Scholars', to: '/research-enablement' },
   { label: 'For Colleges', to: '/centers-of-excellence' },
-  { label: 'For Institutions / GCC', to: '/partnerships' },
+  { label: 'For Institutions', to: '/partnerships' },
 ]
 
 export const GROUP_LINKS: NavLeaf[] = [
-  { label: 'Trueline Research', to: '/', note: 'Do the research' },
-  { label: 'Trueline Publishers', to: '/about#group', note: 'Publish & credentialize' },
-  { label: 'StartNet', to: '/about#group', note: 'Commercialize & partner' },
+  { label: 'Trueline Research', to: 'https://truelineresearch.in/', note: 'Do the research', external: true },
+  { label: 'Trueline Publishers', to: 'https://www.truelinepublisher.in/', note: 'Publish & credentialize', external: true },
+  { label: 'StartNet Ventures', to: 'https://startnetx.in/', note: 'Commercialize & partner', external: true },
   { label: 'Trueline Spectrum', to: '/insights', note: 'The science magazine' },
 ]
 
 // ── Home: the three audience doors ────────────────────────────────────────
 export const DOORS = [
   {
-    id: 'scholar',
-    kicker: "I'm a Researcher",
-    title: 'Do real research, and publish it credibly.',
-    body: 'Mentoring, biostatistics, bioinformatics and methodology support that builds your capability — not deliverables for hire.',
-    to: '/research-enablement',
-    cta: 'Book a consultation',
-  },
-  {
     id: 'college',
     kicker: "I'm a College",
     title: 'Build a research lab inside your campus.',
-    body: 'A co-branded Center of Excellence — funded through national grant schemes — that returns revenue, talent and joint IP.',
+    body: 'A co-branded Center of Excellence — funded through national grant schemes — that turns your campus into a multidisciplinary Research Lab for talent, joint intellectual property and Idea to Product.',
     to: '/centers-of-excellence',
     cta: 'Request a CoE proposal',
   },
   {
     id: 'institution',
-    kicker: "I'm an Institution / GCC",
-    title: 'Supply talent and research at scale.',
-    body: 'Research-as-a-Service and a CoE-trained talent pipeline for global capability centres and Gulf institutions.',
+    kicker: "I'm an Institution",
+    title: 'Build research capability, innovation ecosystems, and multidisciplinary talent at scale.',
+    body: 'Research partnerships and a CoE-trained talent pipeline that connect institutions, researchers and industry — turning research capability into innovation, intellectual property and real-world impact.',
     to: '/partnerships',
     cta: 'Start a partnership',
+  },
+  {
+    id: 'scholar',
+    kicker: "I'm a Researcher",
+    title: 'Do meaningful research, build Intellectual Property, publish credibly, and transform ideas into practical solutions.',
+    body: 'Mentoring, research methodology, biostatistics and bioinformatics that build your capability — from a strong research question to publication, research visibility and Idea to Product.',
+    to: '/research-enablement',
+    cta: 'Book a consultation',
   },
 ]
 
@@ -215,18 +214,18 @@ export const PILLARS = [
     id: 'partner',
     n: '03',
     name: 'Partner',
-    title: 'We partner with GCCs and Gulf institutions.',
-    body: 'Research-as-a-Service and a graduate talent pipeline, delivered at India cost in English, with consent-first data governance.',
+    title: 'We partner institutions, industry and startups.',
+    body: 'Research partnerships, Research-as-a-Service and a graduate talent pipeline — connecting institutions, researchers and industry to move innovation from lab to intellectual property to product.',
     to: '/partnerships',
   },
 ]
 
 // ── Proof strip (network framing — not unverified track-record claims) ─────
 export const PROOF = [
-  { value: '100+', label: 'College network across South India', sub: 'The talent, data & distribution base' },
+  { value: '100+', label: 'College network across India', sub: 'The talent, data & distribution base' },
   { value: '3', label: 'Entities, one flywheel', sub: 'Research · Publishers · StartNet' },
   { value: '4', label: 'National grant rails mapped', sub: 'IDEA Lab · FIST · PM-USHA · BioE3' },
-  { value: '2', label: 'Markets served', sub: 'India GCCs & the Gulf' },
+  { value: '9', label: 'Stages, one research-to-impact journey', sub: 'Research Lab to real-world impact' },
 ]
 
 // ── The Trueline Group flywheel ───────────────────────────────────────────
@@ -249,7 +248,7 @@ export const GROUP = [
     id: 'startnet',
     name: 'StartNet',
     role: 'Commercialize & partner',
-    body: 'The life-sciences startup and innovation ecosystem — incubation, GCC and government partnerships, events and investor relations.',
+    body: 'The life-sciences startup and innovation ecosystem — incubation, industry and government partnerships, events and investor relations.',
     output: 'Deal flow, partnerships & the venture upside',
   },
 ]
@@ -387,21 +386,21 @@ export const COE_TIMELINE = [
 export const PARTNER_TRACKS = [
   {
     id: 'gcc',
-    name: 'Global Capability Centres (India)',
-    body: 'A CoE-trained talent pipeline plus research operations and literature analytics for the captives clustering in Coimbatore, Chennai and across South India.',
-    points: ['CoE-trained graduate supply', 'Research operations & data curation', 'Literature & competitive analytics'],
+    name: 'Institutions & Universities',
+    body: 'Deep collaboration with colleges, universities and research institutions to build research capability, establish Research Labs and Centers of Excellence, and pursue joint research, intellectual property and credible publication.',
+    points: ['Research capability building', 'Joint Research Labs & CoEs', 'Co-authored publications & IP'],
   },
   {
     id: 'gulf',
-    name: 'Gulf Institutions (GCC countries)',
-    body: 'Research-enablement and publishing export framed for Vision 2030 and UAE higher-education strategy — an India-cost, English-language biomedical research partner.',
-    points: ['Research-enablement programs', 'Publishing & editorial export', 'Joint capability building'],
+    name: 'Industry–Academia Collaboration',
+    body: 'Connecting industry with academic research teams to move ideas from lab to product — joint research, technology development, intellectual property and startup creation across life sciences and emerging technologies.',
+    points: ['Joint research & technology development', 'Intellectual property & licensing', 'Idea to Product & startup creation'],
   },
   {
     id: 'industry',
     name: 'Industry & CROs',
-    body: 'Collaboration with pharma, biotech and medtech on focused biomedical research, data work and methodology — bridging academia and industry.',
-    points: ['Pharma / biotech / medtech', 'Methodology & analysis', 'Academic collaboration'],
+    body: 'Collaboration with pharma, biotech and medtech on focused research, data work and methodology — bridging academia and industry to accelerate innovation and real-world impact.',
+    points: ['Pharma / biotech / medtech', 'Methodology & data analysis', 'Academia–industry collaboration'],
   },
 ]
 
@@ -423,9 +422,9 @@ export const ETHICS = [
 
 // ── Insights ──────────────────────────────────────────────────────────────
 export const INSIGHT_CLUSTERS = [
-  { name: 'Research Enablement', count: 'Biostatistics · methodology · AI-in-research', to: '/research-enablement' },
-  { name: 'Centers of Excellence', count: 'Funding · setup · the campus lab model', to: '/centers-of-excellence' },
-  { name: 'Partnerships & GCC', count: 'Talent · research-as-a-service · policy', to: '/partnerships' },
+  { name: 'Research Enablement', count: 'Methodology · biostatistics · intellectual property', to: '/research-enablement' },
+  { name: 'Centers of Excellence', count: 'Funding · setup · the campus Research Lab model', to: '/centers-of-excellence' },
+  { name: 'Partnerships & Collaboration', count: 'Institutional & industry–academia collaboration', to: '/partnerships' },
 ]
 
 export const ARTICLES = [
@@ -444,7 +443,7 @@ export const ARTICLES = [
   {
     tag: 'AI in Research',
     title: 'The consented data moat: research-as-a-service the right way',
-    excerpt: 'How a multi-college network becomes a defensible, ethics-first asset for GCC and Gulf partners.',
+    excerpt: 'How a multi-college network becomes a defensible, ethics-first research asset for institutional and industry partners.',
     read: '7 min read',
   },
 ]
@@ -491,9 +490,9 @@ export const CONTACT_FORMS = [
   },
   {
     id: 'institution',
-    audience: 'Institutions & GCC',
+    audience: 'Institutions & Industry',
     title: 'Start a Strategic Partnership',
-    body: 'Collaborate with us to drive research, innovation, and global partnerships.',
+    body: 'Collaborate with us to drive research, innovation, and institutional partnerships.',
     cta: 'Start a partnership',
     fields: ['Name', 'Organisation', 'Role', 'Email', 'Phone', 'State', 'Message'],
     keys: ['name', 'organisation', 'role', 'email', 'phone', 'state', 'message'],
@@ -525,7 +524,7 @@ export const OFFICES = [
     detail:
       'Building No: 37/882, Opp. Municipal Town Hall, Thirunilath Housing Colony, South Kalamassery, Ernakulam – 682039, Kerala, India (Landmark: Cake Hut Shop)',
   },
-  { city: 'Gulf desk', detail: 'GCC institutional partnerships' },
+  { city: 'Partnerships desk', detail: 'Institutional & industry partnerships' },
 ]
 
 // Structured office data for the "Our Offices" section on the Contact page.

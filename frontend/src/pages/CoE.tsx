@@ -14,7 +14,7 @@ export default function CoE() {
         audience="For colleges & departments"
         eyebrow="Centers of Excellence"
         title={<>A research lab inside your campus.</>}
-        intro="A co-branded Center of Excellence — funded through national grant schemes — that turns your department into an engine for revenue, talent and joint intellectual property."
+        intro="A co-branded Center of Excellence — funded through national grant schemes — that turns your department into a multidisciplinary Research Lab connecting faculty, students, industry and emerging technologies, and moving research into innovation, intellectual property, startup creation and Idea to Product."
         cta={{ label: 'Request a CoE proposal', to: '/contact#college' }}
         image={IMG.campusClassic}
       />

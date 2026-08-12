@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ArrowUpRight, Mail, MapPin } from 'lucide-react'
+import { Mail, MapPin } from 'lucide-react'
 import { Wordmark } from './Marks'
 import { BRAND, CONTACT_INFO } from '../lib/content'
 
@@ -52,8 +52,8 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <Wordmark tone="white" />
             <p className="mt-5 max-w-xs text-[15px] leading-relaxed text-white/55">
-              {BRAND.tagline} Enabling scholars, building Centers of Excellence, and partnering with
-              institutions across India and the Gulf.
+              {BRAND.tagline} Enabling researchers, building Centers of Excellence, and partnering with
+              institutions and industry across India.
             </p>
             <div className="mt-6 space-y-2.5 text-sm text-white/55">
               <p className="flex items-start gap-2.5 leading-relaxed">
@@ -93,14 +93,6 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-7 text-[13px] text-white/45 md:flex-row md:items-center md:justify-between">
           <p>© {new Date().getFullYear()} Trueline Research · {BRAND.group}. All rights reserved.</p>
-          <div className="flex flex-wrap items-center gap-5">
-            <Link to="/about#ethics" className="hover:text-white">Privacy Policy</Link>
-            <Link to="/about#ethics" className="hover:text-white">Data & Consent Policy</Link>
-            <Link to="/about#ethics" className="hover:text-white">Terms</Link>
-            <a href="#" className="inline-flex items-center gap-1 hover:text-white">
-              LinkedIn <ArrowUpRight className="h-3.5 w-3.5" />
-            </a>
-          </div>
         </div>
       </div>
     </footer>

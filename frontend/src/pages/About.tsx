@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useReducedMotion } from 'framer-motion'
 import { ShieldCheck, Target, Compass, BookOpen, Rocket, ArrowRight, Linkedin, Instagram, Facebook, MessageCircle, Phone } from 'lucide-react'
 import { Container, Reveal, SectionHead, Eyebrow } from '../lib/ui'
-import { ETHICS, PROOF, BRAND } from '../lib/content'
+import { ETHICS, BRAND } from '../lib/content'
 import PageHero from '../components/PageHero'
 import CTABand from '../components/CTABand'
 import Figure from '../components/Figure'
@@ -13,11 +13,11 @@ import ceoImage from '../assets/images/ceo.jpg'
 const IMPACT_STATS = [
   { value: 150, title: ['Institutions & Universities', 'Enabled for Excellence & Collaboration'] },
   { value: 100, title: ['Startups Mentored through', 'Incubation & Acceleration'] },
+  { value: 15000, title: ['Students Trained through', 'Workshops & Skill Development'] },
+  { value: 5000, title: ['Faculty Trained through', 'Workshops & FDPs'] },
   { value: 250, title: ['IPRs – Patents, Trademarks,', 'Copyrights & Industrial Designs'] },
   { value: 20, title: ['Industry Partners Empowered with', 'AI, LLM, CRM & Digital Solutions'] },
   { value: 200, title: ['Academic Books', 'Published Worldwide'] },
-  { value: 15000, title: ['Students Trained through', 'Workshops & Skill Development'] },
-  { value: 5000, title: ['Faculty Trained through', 'Workshops & FDPs'] },
   { value: 1500, title: ['Research Publications Driving', 'Science & Innovation'] },
   { value: 60, title: ['Scientific Progress Through', 'Conferences & Publications'] },
 ]
@@ -74,8 +74,8 @@ export default function About() {
         image={IMG.teamLaptops}
       />
 
-      {/* CEO Message */}
-      <section id="ceo-message" className="bg-canvas py-24 scroll-mt-24">
+      {/* Founder Message */}
+      <section id="founder-message" className="bg-canvas py-24 scroll-mt-24">
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-12">
             <div className="lg:col-span-5">
@@ -90,13 +90,13 @@ export default function About() {
             <div className="lg:col-span-7">
               <Eyebrow>Leadership</Eyebrow>
               <h2 className="display mt-5 text-[clamp(1.8rem,4vw,2.8rem)] text-balance">
-                CEO Message
+                Founder Message
               </h2>
               <p className="mt-5 font-display text-lg font-semibold text-ink">Dr. V. NAGARAJ</p>
               <div className="prose-tl space-y-4 mt-4 max-w-2xl">
                 <p>
-                  <strong>M.E., M.B.A., Ph.D. from Anna University and Post Doctorate Fellowship from University of South Florida (USA).</strong> With over <strong>13 years of experience</strong> in academic publishing, research, and innovation, I founded
-                  <strong>Trueline Research  in 2019</strong>, we are committed to advancing research, innovation, and technology through our AI Multidisciplinary Research Labs Centers of Excellence (CoE), and R&D ecosystem. With 13+ years of excellence,<strong> we have supported 1,500+ research publications, 250+ patents, 200+ books, and 150+ academic collaborations, empowering researchers, academic institutions, startups, and industries to achieve global impact.</strong>
+                  M.E., M.B.A., Ph.D. from Anna University and Post Doctorate Fellowship from University of South Florida (USA). With over 13 years of experience in academic publishing, research, and innovation, I founded
+                  Trueline Research  in 2023, we are committed to advancing research, innovation, and technology through our AI Multidisciplinary Research Labs Centers of Excellence (CoE), and R&D ecosystem. we have supported 1,500+ research publications, 250+ patents, 200+ books, and 150+ academic collaborations, empowering researchers, academic institutions, startups, and industries to achieve global impact.
                 </p>
                 <p>
                   We transform Ideas into Products by providing end-to-end support in research publications, research funding, patents, trademarks, copyrights (IPR), technology commercialization, startup incubation, innovation consulting, and industry-driven R&D. We also encourage participation in hackathons, innovation challenges, and entrepreneurship programs, enabling researchers and innovators to develop future-ready technologies and sustainable solutions.
@@ -205,10 +205,11 @@ export default function About() {
               </h2>
               <div className="mt-6 space-y-5 text-lg leading-relaxed text-ink-soft">
                 <p>
-                  Trueline Research is the life-sciences and biomedical research-enablement engine of
-                  the Trueline Group. We help scholars do credible research, we build Centers of
-                  Excellence inside colleges, and we partner with institutions and global capability
-                  centres that need talent and research at scale.
+                  Trueline Research is the research-enablement ecosystem of the Trueline Group. We
+                  help researchers do credible research, we build Centers of Excellence inside
+                  colleges, and we partner with institutions and industry — moving research capability
+                  through multidisciplinary collaboration, innovation, intellectual property, startup
+                  creation and Idea to Product to credible publication and real-world impact.
                 </p>
                 <p>
                   Our North Star is simple: turn a 100+ college network across South India into a
@@ -246,7 +247,7 @@ export default function About() {
           <SectionHead
             eyebrow="Our approach"
             title={<>Enablement, not ghostwriting.</>}
-            intro="This is both a values statement and a commercial asset — it’s what lets institutional and Gulf clients trust us, and what survives investor and partner due diligence."
+            intro="This is both a values statement and a commercial asset — it’s what lets institutional and industry partners trust us, and what survives investor and partner due diligence."
           />
           <Reveal delay={0.1}>
             <Figure img={IMG.mentoring} ratio="wide" scrim="soft" className="mt-12" />
@@ -281,57 +282,33 @@ export default function About() {
       </section>
 
       {/* Ethics */}
-      <section id="ethics" className="bg-ink py-24 text-white scroll-mt-24">
+      <section id="ethics" className="bg-canvas py-24 scroll-mt-24">
         <Container>
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <span className="eyebrow text-brand-300"><span className="h-px w-6 bg-brand-300" /> Ethics & Integrity Charter</span>
-              <h2 className="display mt-5 text-[clamp(1.8rem,4vw,2.8rem)] text-white text-balance">
+              <span className="eyebrow text-brand-600"><span className="h-px w-6 bg-brand-500" /> Ethics & Integrity Charter</span>
+              <h2 className="display mt-5 text-[clamp(1.8rem,4vw,2.8rem)] text-ink text-balance">
                 The non-negotiables we build into every page.
               </h2>
-              <p className="mt-6 text-lg leading-relaxed text-white/60">
+              <p className="mt-6 text-lg leading-relaxed text-ink-soft">
                 No outcome guarantees. Consent-first data. COPE-aligned publishing ethics. The integrity
                 layer isn’t a disclaimer — it’s the product.
               </p>
-              <Figure img={IMG.radiology} ratio="photo" duotone rounded="rounded-2xl" className="mt-8 border border-white/10" />
+              <Figure img={IMG.radiology} ratio="photo" rounded="rounded-2xl" className="mt-8 border border-line" />
             </div>
             <div className="lg:col-span-7">
               <ul className="space-y-4">
                 {ETHICS.map((e, i) => (
                   <Reveal key={i} delay={i * 0.06} as="li">
-                    <div className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-                      <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-brand-500 text-sm font-bold">{i + 1}</span>
-                      <span className="text-[15px] leading-relaxed text-white/85">{e}</span>
+                    <div className="flex items-start gap-3 rounded-2xl border border-line bg-white p-5 shadow-sm">
+                      <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-brand-500 text-sm font-bold text-white">{i + 1}</span>
+                      <span className="text-[15px] leading-relaxed text-ink">{e}</span>
                     </div>
                   </Reveal>
                 ))}
               </ul>
             </div>
           </div>
-        </Container>
-      </section>
-
-      {/* Impact */}
-      <section id="impact" className="py-24 scroll-mt-24">
-        <Container>
-          <SectionHead
-            eyebrow="Impact & numbers"
-            title={<>The scorecard.</>}
-            intro="We report on what compounds: the college network we enable, the entities that reinforce each other, and the markets we reach."
-          />
-          <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-line bg-line lg:grid-cols-4">
-            {PROOF.map((p, i) => (
-              <Reveal key={p.label} delay={i * 0.06} className="bg-white p-8">
-                <div className="font-display text-4xl font-semibold text-spectrum sm:text-5xl">{p.value}</div>
-                <div className="mt-2 text-[15px] font-medium text-ink">{p.label}</div>
-                <div className="mt-1 text-sm text-ink-faint">{p.sub}</div>
-              </Reveal>
-            ))}
-          </div>
-          <p className="mt-5 text-sm text-ink-faint">
-            Network and capability figures reflect the Trueline Group footprint and ambition; historical
-            track-record metrics are verified before publication.
-          </p>
         </Container>
       </section>
 

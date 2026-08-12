@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronDown, Globe, Menu, X, ArrowRight } from 'lucide-react'
+import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react'
 import { NAV, UTILITY_LINKS, GROUP_LINKS, type NavItem } from '../lib/content'
 import logo from '../assets/logo.png'
 
@@ -55,26 +55,38 @@ export default function Nav() {
                     transition={{ duration: 0.18 }}
                     className="absolute right-0 top-full z-[60] mt-1 w-72 overflow-hidden rounded-2xl border border-line bg-white p-2 text-ink shadow-card-lg"
                   >
-                    {GROUP_LINKS.map((g) => (
-                      <Link
-                        key={g.label}
-                        to={g.to}
-                        className="flex items-center justify-between rounded-xl px-3 py-2.5 transition-colors hover:bg-canvas"
-                      >
-                        <span>
-                          <span className="block text-sm font-semibold">{g.label}</span>
-                          <span className="block text-xs text-ink-faint">{g.note}</span>
-                        </span>
-                        <ArrowRight className="h-3.5 w-3.5 text-brand-500" />
-                      </Link>
-                    ))}
+                    {GROUP_LINKS.map((g) => {
+                      const cls =
+                        'flex items-center justify-between rounded-xl px-3 py-2.5 transition-colors hover:bg-canvas'
+                      const inner = (
+                        <>
+                          <span>
+                            <span className="block text-sm font-semibold">{g.label}</span>
+                            <span className="block text-xs text-ink-faint">{g.note}</span>
+                          </span>
+                          <ArrowRight className="h-3.5 w-3.5 text-brand-500" />
+                        </>
+                      )
+                      return g.external ? (
+                        <a
+                          key={g.label}
+                          href={g.to}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={cls}
+                        >
+                          {inner}
+                        </a>
+                      ) : (
+                        <Link key={g.label} to={g.to} className={cls}>
+                          {inner}
+                        </Link>
+                      )
+                    })}
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
-            <button className="flex items-center gap-1 transition-colors hover:text-white">
-              <Globe className="h-3.5 w-3.5" /> EN
-            </button>
           </div>
         </div>
       </div>
@@ -232,11 +244,23 @@ function MobileMenu() {
           </Link>
         </div>
         <div className="flex flex-wrap gap-x-5 gap-y-1 pt-4 text-sm text-ink-faint">
-          {GROUP_LINKS.map((g) => (
-            <Link key={g.label} to={g.to} className="hover:text-brand-600">
-              {g.label}
-            </Link>
-          ))}
+          {GROUP_LINKS.map((g) =>
+            g.external ? (
+              <a
+                key={g.label}
+                href={g.to}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-brand-600"
+              >
+                {g.label}
+              </a>
+            ) : (
+              <Link key={g.label} to={g.to} className="hover:text-brand-600">
+                {g.label}
+              </Link>
+            ),
+          )}
         </div>
       </div>
     </motion.div>

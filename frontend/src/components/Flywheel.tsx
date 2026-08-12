@@ -181,7 +181,7 @@ export default function Flywheel({ data = GROUP, core, wrap = false }: FlywheelP
           100+ college network ↓
         </div>
         <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 rounded-full border border-line bg-white px-3 py-1 text-[11px] font-semibold text-ink-soft shadow-card">
-          ↑ GCC · Gulf · venture scale
+          ↑ Innovation · IP · venture scale
         </div>
       </div>
 

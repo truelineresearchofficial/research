@@ -14,7 +14,7 @@ export default function Enablement() {
         audience="For scholars & faculty"
         eyebrow="Research Enablement"
         title={<>Do real research. Publish it credibly.</>}
-        intro="Mentoring, biostatistics, bioinformatics and methodology support that builds your capability — process, not deliverables. You stay the researcher; you keep the skill."
+        intro="Research methodology, biostatistics, bioinformatics, data analysis and scientific writing that build stronger researchers — moving your work from research question to publication, intellectual property and research visibility. You stay the researcher; you keep the skill."
         cta={{ label: 'Book a consultation', to: '/contact#scholar' }}
         image={IMG.microplate}
       />
