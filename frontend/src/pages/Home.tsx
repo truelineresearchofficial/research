@@ -9,6 +9,10 @@ import {
   ShieldCheck,
   Sparkles,
   Quote,
+  FlaskConical,
+  Cpu,
+  Database,
+  Rocket,
 } from 'lucide-react'
 import { Container, Reveal, SectionHead, Eyebrow, ArrowLink } from '../lib/ui'
 import { DOORS, PILLARS, PROOF, ECOSYSTEM, ARTICLES, PARTNER_TRACKS, ETHICS } from '../lib/content'
@@ -34,6 +38,7 @@ export default function Home() {
       <PartnerTeaser />
       <IntegritySection />
       <InsightsTeaser />
+      <AIProducts />
       <CTABand
         eyebrow="Where knowledge becomes impact"
         title="Build the future through research & innovation."
@@ -423,6 +428,70 @@ function IntegritySection() {
               ))}
             </ul>
           </div>
+        </div>
+      </Container>
+    </section>
+  )
+}
+
+// ── AI Products & Platform Building ───────────────────────────────────────
+const AI_PRODUCTS = [
+  {
+    icon: FlaskConical,
+    title: 'Research-to-Product',
+    body: 'Turn research findings and promising ideas into practical product concepts, prototypes, and solutions.',
+    to: '/contact',
+  },
+  {
+    icon: Cpu,
+    title: 'AI & Intelligent Systems',
+    body: 'Build AI-enabled applications, decision-support systems, automation tools, and intelligent digital solutions.',
+    to: '/contact',
+  },
+  {
+    icon: Database,
+    title: 'Data & Platform Engineering',
+    body: 'Transform research and institutional data into secure, scalable platforms, dashboards, and data-driven systems.',
+    to: '/contact',
+  },
+  {
+    icon: Rocket,
+    title: 'Idea to Product',
+    body: 'Move from problem identification and validation through prototyping, development, testing, and productization.',
+    to: '/contact',
+  },
+]
+
+function AIProducts() {
+  return (
+    <section className="bg-canvas py-24">
+      <Container>
+        <SectionHead
+          eyebrow="From idea to product"
+          title={<>AI Products &amp; Platform Building</>}
+          intro="From research and ideas to intelligent products and scalable platforms — we bring together multidisciplinary expertise, data, AI, and product thinking to build solutions with real-world impact."
+        />
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {AI_PRODUCTS.map((c, i) => {
+            const Icon = c.icon
+            return (
+              <Reveal key={c.title} delay={i * 0.08}>
+                <div className="group flex h-full flex-col rounded-3xl border border-line bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:shadow-card">
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand-50 text-brand-600 transition-colors group-hover:bg-brand-100">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <h3 className="mt-6 font-display text-lg font-medium leading-snug text-ink">{c.title}</h3>
+                  <p className="mt-3 flex-1 text-[15px] leading-relaxed text-ink-soft">{c.body}</p>
+                  <Link
+                    to={c.to}
+                    className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 group-hover:text-brand-700"
+                  >
+                    Explore Solutions <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </Reveal>
+            )
+          })}
         </div>
       </Container>
     </section>

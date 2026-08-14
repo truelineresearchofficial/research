@@ -1,7 +1,25 @@
 import { Link } from 'react-router-dom'
-import { Mail, MapPin } from 'lucide-react'
-import { Wordmark } from './Marks'
+import { Mail, MapPin, Linkedin, Instagram, Facebook } from 'lucide-react'
 import { BRAND, CONTACT_INFO } from '../lib/content'
+import logo from '../assets/logo.png'
+
+const SOCIALS = [
+  {
+    label: 'LinkedIn',
+    Icon: Linkedin,
+    href: 'https://www.linkedin.com/company/trueline-research-private-limited/posts/?feedView=all',
+  },
+  {
+    label: 'Instagram',
+    Icon: Instagram,
+    href: 'https://www.instagram.com/trueline_research?igsh=eXR1bG1ndDJlY3B3',
+  },
+  {
+    label: 'Facebook',
+    Icon: Facebook,
+    href: 'https://www.facebook.com/share/1D443RvQLC/?mibextid=wwXIfr',
+  },
+]
 
 const COLS = [
   {
@@ -46,16 +64,16 @@ const COLS = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line bg-ink text-white/70">
-      <div className="container-tl py-16">
+    <footer className="border-t border-line bg-[#002C71] text-white/70">
+      <div className="container-tl pt-16 pb-8">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Wordmark tone="white" />
-            <p className="mt-5 max-w-xs text-[15px] leading-relaxed text-white/55">
+            <img src={logo} alt="Trueline Research" className="h-16 w-auto brightness-0 invert" />
+            <p className="mt-5 max-w-xs text-[15px] leading-relaxed text-white">
               {BRAND.tagline} Enabling researchers, building Centers of Excellence, and partnering with
               institutions and industry across India.
             </p>
-            <div className="mt-6 space-y-2.5 text-sm text-white/55">
+            <div className="mt-6 space-y-2.5 text-sm text-white">
               <p className="flex items-start gap-2.5 leading-relaxed">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-300" />
                 Trueline Research, Building No. 7/232-26, Devi Towers, Kalipatti Privu Road, Vaikuntham,
@@ -65,12 +83,20 @@ export default function Footer() {
                 <Mail className="h-4 w-4 text-brand-300" /> {CONTACT_INFO.email}
               </a>
             </div>
-            <Link
-              to="/contact"
-              className="btn-brand mt-6 inline-flex h-10 px-5 text-sm"
-            >
-              Contact us
-            </Link>
+            <div className="mt-6 flex items-center gap-3">
+              {SOCIALS.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white/10"
+                >
+                  <s.Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
           </div>
 
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-8">
@@ -80,7 +106,7 @@ export default function Footer() {
                 <ul className="mt-4 space-y-2.5">
                   {col.links.map((l) => (
                     <li key={l.label}>
-                      <Link to={l.to} className="text-sm text-white/55 transition-colors hover:text-white">
+                      <Link to={l.to} className="text-sm text-white transition-colors hover:text-brand-300">
                         {l.label}
                       </Link>
                     </li>
@@ -91,8 +117,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-7 text-[13px] text-white/45 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} Trueline Research · {BRAND.group}. All rights reserved.</p>
+        <div className="mt-14 border-t border-white/10 pt-7 text-center text-[13px] text-white">
+          <p>© 2026 Trueline Research · All rights reserved.</p>
         </div>
       </div>
     </footer>

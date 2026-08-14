@@ -282,10 +282,10 @@ export default function About() {
       </section>
 
       {/* Ethics */}
-      <section id="ethics" className="bg-canvas py-24 scroll-mt-24">
+      <section id="ethics" className="bg-canvas pt-24 pb-8 scroll-mt-24">
         <Container>
           <div className="grid gap-12 lg:grid-cols-12">
-            <div className="lg:col-span-5">
+            <div className="flex flex-col lg:col-span-5">
               <span className="eyebrow text-brand-600"><span className="h-px w-6 bg-brand-500" /> Ethics & Integrity Charter</span>
               <h2 className="display mt-5 text-[clamp(1.8rem,4vw,2.8rem)] text-ink text-balance">
                 The non-negotiables we build into every page.
@@ -294,7 +294,7 @@ export default function About() {
                 No outcome guarantees. Consent-first data. COPE-aligned publishing ethics. The integrity
                 layer isn’t a disclaimer — it’s the product.
               </p>
-              <Figure img={IMG.radiology} ratio="photo" rounded="rounded-2xl" className="mt-8 border border-line" />
+              <Figure img={IMG.radiology} ratio="auto" rounded="rounded-2xl" className="mt-8 aspect-[4/3] border border-line lg:aspect-auto lg:min-h-[320px] lg:flex-1" />
             </div>
             <div className="lg:col-span-7">
               <ul className="space-y-4">
