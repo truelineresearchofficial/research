@@ -121,7 +121,7 @@ export default function Enablement() {
         title="Map your research to a publishable path."
         body="A 30-minute working session with a Trueline mentor — bring your question, leave with a method."
         primary={{ label: 'Book a consultation', to: '/contact#scholar' }}
-        secondary={{ label: 'Explore Centers of Excellence', to: '/centers-of-excellence' }}
+        secondary={{ label: 'Explore Centers of Excellence', to: '/partnerships' }}
       />
     </>
   )

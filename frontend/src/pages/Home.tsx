@@ -1,31 +1,23 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import {
   ArrowRight,
-  ArrowUpRight,
-  Microscope,
   Building2,
-  Globe2,
-  ShieldCheck,
-  Sparkles,
-  Quote,
   FlaskConical,
   Cpu,
   Database,
   Rocket,
 } from 'lucide-react'
 import { Container, Reveal, SectionHead, Eyebrow, ArrowLink } from '../lib/ui'
-import { DOORS, PILLARS, PROOF, ECOSYSTEM, ARTICLES, PARTNER_TRACKS, ETHICS } from '../lib/content'
+import { DOORS, PILLARS, PROOF, ECOSYSTEM, PARTNER_TRACKS } from '../lib/content'
 import Flywheel from '../components/Flywheel'
 import CTABand from '../components/CTABand'
 import Figure from '../components/Figure'
 import { IMG } from '../lib/images'
 import { HelixLines, Molecule } from '../components/Marks'
 
-const DOOR_ICONS = [Building2, Globe2, Microscope]
-const DOOR_IMG = [IMG.campusClassic, IMG.officeOpen, IMG.microplate]
+const DOOR_ICONS = [Rocket, FlaskConical, Building2]
+const DOOR_IMG = [IMG.teamLaptops, IMG.microscopes, IMG.campusClassic]
 const PARTNER_IMG = [IMG.officeOpen, IMG.dubaiSkyline, IMG.microscopes]
-const ARTICLE_IMG = [IMG.data, IMG.coins, IMG.neuron]
 
 export default function Home() {
   return (
@@ -36,8 +28,6 @@ export default function Home() {
       <CoETeaser />
       <GroupSection />
       <PartnerTeaser />
-      <IntegritySection />
-      <InsightsTeaser />
       <AIProducts />
       <CTABand
         eyebrow="Where knowledge becomes impact"
@@ -53,12 +43,12 @@ export default function Home() {
 // ── Hero ──────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-canvas pt-[108px]">
+    <section className="relative overflow-hidden bg-canvas pt-[68px] lg:pt-[104px]">
       <div className="pointer-events-none absolute inset-0 bg-grid-fine opacity-70" />
       <div className="pointer-events-none absolute -left-40 top-0 h-[500px] w-[500px] rounded-full bg-brand-200/40 blur-[120px]" />
       <div className="pointer-events-none absolute right-0 top-20 h-[420px] w-[420px] rounded-full bg-sky/10 blur-[110px]" />
 
-      <Container className="relative pb-10 pt-14 lg:pt-20">
+      <Container className="relative pb-10 pt-8 lg:pt-12">
         <div className="grid items-center gap-12 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <Reveal>
@@ -66,13 +56,13 @@ function Hero() {
             </Reveal>
             <Reveal delay={0.06}>
               <h1 className="display mt-6 text-[clamp(2.7rem,6.2vw,4.7rem)] text-balance">
-                Where multidisciplinary research{' '}
+                Where Multidisciplinary Research{' '}
                 <span className="text-spectrum">becomes meaningful impact.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.12}>
               <p className="mt-7 max-w-xl text-xl leading-relaxed text-ink-soft text-pretty">
-                We make Researchers capable, build Centers of Excellence inside Colleges, and partner with Institutions across India — turning a College network into multidisciplinary Talent, Research, Data, and Intellectual Property with a strong focus on Idea to Product.
+                We make Researchers capable, build Centers of Excellence inside Colleges, and partner with Institutions across India — turning a Startup network into multidisciplinary Talent, Research, Data, and Intellectual Property with a strong focus on Idea to Product.
               </p>
             </Reveal>
             <Reveal delay={0.18}>
@@ -80,16 +70,10 @@ function Hero() {
                 <Link to="/contact" className="btn-brand h-12 px-7 text-[15px]">
                   Get Started <ArrowRight className="h-4 w-4" />
                 </Link>
-                <Link to="/centers-of-excellence" className="btn-ghost h-12 px-7 text-[15px]">
+                <Link to="/partnerships" className="btn-ghost h-12 px-7 text-[15px]">
                   See the CoE model
                 </Link>
               </div>
-            </Reveal>
-            <Reveal delay={0.24}>
-              <p className="mt-7 flex items-center gap-2 text-sm text-ink-faint">
-                <ShieldCheck className="h-4 w-4 text-brand-500" />
-                Enablement, never ghostwriting. Integrity-first across the Trueline Group.
-              </p>
             </Reveal>
           </div>
 
@@ -155,61 +139,6 @@ function HeroVisual() {
         scrim="soft"
         className="border border-line shadow-card-lg"
       />
-
-      {/* Live-capability glass card overlapping the image */}
-      <motion.div
-        className="absolute -bottom-6 -left-6 w-[78%] max-w-xs overflow-hidden rounded-2xl border border-white/15 bg-ink/85 p-5 text-white shadow-card-lg backdrop-blur-xl"
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <div className="flex items-center justify-between">
-          <span className="eyebrow text-brand-300">Live capability</span>
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="absolute h-2.5 w-2.5 animate-ping rounded-full bg-brand-400 opacity-75" />
-            <span className="h-2.5 w-2.5 rounded-full bg-brand-400" />
-          </span>
-        </div>
-        <div className="mt-4 space-y-2.5">
-          {[
-            { k: 'Enable', v: 92, c: '#2CA897' },
-            { k: 'Build', v: 78, c: '#22C3C9' },
-            { k: 'Partner', v: 64, c: '#3E9BE8' },
-          ].map((row, i) => (
-            <div key={row.k}>
-              <div className="flex items-center justify-between text-[12px]">
-                <span className="font-medium text-white/80">{row.k}</span>
-                <span className="text-white/50">{row.v}</span>
-              </div>
-              <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-white/10">
-                <motion.div
-                  className="h-full rounded-full"
-                  style={{ background: row.c }}
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${row.v}%` }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.1, delay: 0.6 + i * 0.15, ease: [0.22, 1, 0.36, 1] }}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* floating AI chip */}
-      <motion.div
-        className="absolute -right-4 top-6 flex items-center gap-2.5 rounded-2xl border border-line bg-white/95 px-4 py-3 shadow-card-lg backdrop-blur"
-        animate={{ y: [0, -8, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-      >
-        <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-50 text-brand-600">
-          <Sparkles className="h-4.5 w-4.5" />
-        </span>
-        <div>
-          <div className="text-sm font-semibold text-ink">AI-enabled</div>
-          <div className="text-xs text-ink-faint">biomedical research</div>
-        </div>
-      </motion.div>
     </Reveal>
   )
 }
@@ -300,7 +229,7 @@ function CoETeaser() {
               into an engine for talent, joint intellectual property and product development.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/centers-of-excellence" className="btn-brand h-12 px-7 text-[15px]">
+              <Link to="/partnerships" className="btn-brand h-12 px-7 text-[15px]">
                 Explore the CoE model <ArrowRight className="h-4 w-4" />
               </Link>
               <Link to="/contact#college" className="btn h-12 border border-white/20 px-7 text-[15px] text-white hover:bg-white/10">
@@ -394,46 +323,6 @@ function PartnerTeaser() {
   )
 }
 
-// ── Integrity ─────────────────────────────────────────────────────────────
-function IntegritySection() {
-  return (
-    <section className="bg-canvas py-24">
-      <Container>
-        <div className="grid items-center gap-14 lg:grid-cols-2">
-          <div>
-            <Eyebrow>The integrity layer</Eyebrow>
-            <h2 className="display mt-5 text-[clamp(1.9rem,4.2vw,3.1rem)] text-balance">
-              Capability, never deliverables-for-hire.
-            </h2>
-            <p className="mt-6 text-lg leading-relaxed text-ink-soft">
-              Our repositioning rests on one non-negotiable: we build the researcher’s capability and
-              the institution’s capacity. It’s what lets institutional and industry partners trust us — and
-              what survives investor and partner due diligence.
-            </p>
-            <Link to="/about#ethics" className="mt-8 inline-flex">
-              <span className="btn-ghost h-12 px-7 text-[15px]">Read the Ethics & Integrity Charter</span>
-            </Link>
-          </div>
-          <div className="relative rounded-[2rem] border border-line bg-white p-8 shadow-card">
-            <Figure img={IMG.mentoring} ratio="wide" rounded="rounded-2xl" scrim="soft" className="mb-7" />
-            <Quote className="absolute right-7 top-7 h-10 w-10 text-white/70" />
-            <ul className="space-y-4">
-              {ETHICS.map((e, i) => (
-                <Reveal key={i} delay={i * 0.06} as="li">
-                  <div className="flex gap-3">
-                    <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-brand-500" />
-                    <span className="text-[15px] leading-relaxed text-ink">{e}</span>
-                  </div>
-                </Reveal>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Container>
-    </section>
-  )
-}
-
 // ── AI Products & Platform Building ───────────────────────────────────────
 const AI_PRODUCTS = [
   {
@@ -498,48 +387,3 @@ function AIProducts() {
   )
 }
 
-// ── Insights teaser ───────────────────────────────────────────────────────
-function InsightsTeaser() {
-  return (
-    <section className="py-24">
-      <Container>
-        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
-          <SectionHead
-            eyebrow="Research, publishing & visibility"
-            title={<>From research to visibility and impact.</>}
-            intro="Where research development meets ethical publishing, scholarly communication and global dissemination — the field notes that carry knowledge from the lab to the wider world."
-            className="md:max-w-xl"
-          />
-          <ArrowLink to="/insights" className="shrink-0 pb-2">
-            Visit Trueline Spectrum
-          </ArrowLink>
-        </div>
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {ARTICLES.map((a, i) => (
-            <Reveal key={a.title} delay={i * 0.08}>
-              <Link
-                to="/insights"
-                className="group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-card"
-              >
-                <Figure img={ARTICLE_IMG[i]} ratio="photo" rounded="rounded-none" imgClassName="transition-transform duration-700 group-hover:scale-105" />
-                <div className="flex flex-1 flex-col p-7">
-                  <span className="self-start rounded-full bg-canvas px-3 py-1 text-xs font-semibold text-brand-600">
-                    {a.tag}
-                  </span>
-                  <h3 className="mt-5 flex-1 font-display text-lg font-medium leading-snug text-ink group-hover:text-brand-700">
-                    {a.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-ink-soft">{a.excerpt}</p>
-                  <div className="mt-5 flex items-center justify-between border-t border-line pt-4 text-sm text-ink-faint">
-                    {a.read}
-                    <ArrowUpRight className="h-4 w-4 text-brand-500 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </div>
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-      </Container>
-    </section>
-  )
-}

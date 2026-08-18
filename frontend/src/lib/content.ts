@@ -83,36 +83,6 @@ export const NAV: NavItem[] = [
     },
   },
   {
-    label: 'Centers of Excellence',
-    to: '/centers-of-excellence',
-    columns: [
-      {
-        heading: 'For colleges & departments',
-        audience: 'The moat-builder',
-        items: [
-          { label: 'The CoE model', to: '/centers-of-excellence#model', note: 'A research lab inside your campus' },
-          { label: 'AI & Bioinformatics CoE', to: '/centers-of-excellence#ai', note: 'Asset-light · launch first' },
-          { label: 'Biomedical & Life-Sciences CoE', to: '/centers-of-excellence#bio' },
-          { label: 'What colleges get', to: '/centers-of-excellence#returns' },
-        ],
-      },
-      {
-        heading: 'Setup & funding',
-        items: [
-          { label: 'How funding works', to: '/centers-of-excellence#funding', note: 'IDEA Lab · FIST · PM-USHA · BioE3' },
-          { label: 'Setup & timeline', to: '/centers-of-excellence#timeline' },
-          { label: 'Case studies & showcase', to: '/centers-of-excellence#cases' },
-        ],
-      },
-    ],
-    feature: {
-      title: 'Request a CoE proposal',
-      body: 'A short qualifying form returns a tailored proposal that maps available grants to your setup cost.',
-      to: '/contact#college',
-      cta: 'Request a proposal',
-    },
-  },
-  {
     label: 'Partnerships & GCC',
     to: '/partnerships',
     columns: [
@@ -153,8 +123,8 @@ export const NAV: NavItem[] = [
 
 export const UTILITY_LINKS: NavLeaf[] = [
   { label: 'For Scholars', to: '/research-enablement' },
-  { label: 'For Colleges', to: '/centers-of-excellence' },
-  { label: 'For Institutions', to: '/partnerships' },
+  { label: 'For Colleges / Institutions', to: '/partnerships' },
+  { label: 'Partnerships & GCC', to: '/partnerships' },
 ]
 
 export const GROUP_LINKS: NavLeaf[] = [
@@ -167,28 +137,28 @@ export const GROUP_LINKS: NavLeaf[] = [
 // ── Home: the three audience doors ────────────────────────────────────────
 export const DOORS = [
   {
-    id: 'college',
-    kicker: "I'm a College",
-    title: 'Build a research lab inside your campus.',
-    body: 'A co-branded Center of Excellence — funded through national grant schemes — that turns your campus into a multidisciplinary Research Lab for talent, joint intellectual property and Idea to Product.',
-    to: '/centers-of-excellence',
-    cta: 'Request a CoE proposal',
+    id: 'startup',
+    kicker: "I'm a Startup",
+    title: 'Turn research and innovation into scalable products, ventures, and real-world solutions.',
+    body: 'From validated ideas to prototypes and ventures — we bring research, data, AI and product thinking together to move innovation toward scalable, real-world solutions.',
+    to: '/startups',
+    cta: 'Research to Venture',
   },
   {
-    id: 'institution',
-    kicker: "I'm an Institution",
-    title: 'Build research capability, innovation ecosystems, and multidisciplinary talent at scale.',
-    body: 'Research partnerships and a CoE-trained talent pipeline that connect institutions, researchers and industry — turning research capability into innovation, intellectual property and real-world impact.',
+    id: 'lab-industry',
+    kicker: "I'm a Lab / Industry",
+    title: 'Build research capability, multidisciplinary collaboration, and innovation partnerships that move ideas toward real-world impact.',
+    body: 'Applied research, multidisciplinary collaboration and innovation partnerships that connect labs, industry and researchers — turning capability into intellectual property and real-world impact.',
+    to: '/lab-industry',
+    cta: 'Research & Industry',
+  },
+  {
+    id: 'college-institution',
+    kicker: "I'm a College / Institution",
+    title: 'Build research capability, multidisciplinary collaboration, and innovation pathways that move ideas toward real-world impact.',
+    body: 'Centers of Excellence, research enablement and faculty & student development that build institutional research capability — from Research Lab to intellectual property, publication and real-world impact.',
     to: '/partnerships',
-    cta: 'Start a partnership',
-  },
-  {
-    id: 'scholar',
-    kicker: "I'm a Researcher",
-    title: 'Do meaningful research, build Intellectual Property, publish credibly, and transform ideas into practical solutions.',
-    body: 'Mentoring, research methodology, biostatistics and bioinformatics that build your capability — from a strong research question to publication, research visibility and Idea to Product.',
-    to: '/research-enablement',
-    cta: 'Book a consultation',
+    cta: 'Build with us',
   },
 ]
 
@@ -208,7 +178,7 @@ export const PILLARS = [
     name: 'Build',
     title: 'We build Centers of Excellence inside colleges.',
     body: 'An asset-light lab network that turns campuses into engines for talent, data and intellectual property.',
-    to: '/centers-of-excellence',
+    to: '/partnerships',
   },
   {
     id: 'partner',
@@ -222,10 +192,10 @@ export const PILLARS = [
 
 // ── Proof strip (network framing — not unverified track-record claims) ─────
 export const PROOF = [
-  { value: '100+', label: 'College network across India', sub: 'The talent, data & distribution base' },
-  { value: '3', label: 'Entities, one flywheel', sub: 'Research · Publishers · StartNet' },
-  { value: '4', label: 'National grant rails mapped', sub: 'IDEA Lab · FIST · PM-USHA · BioE3' },
-  { value: '9', label: 'Stages, one research-to-impact journey', sub: 'Research Lab to real-world impact' },
+  { value: '15,000+', label: 'Students Trained through', sub: 'Workshops & Skill Development' },
+  { value: '5,000+', label: 'Faculty Trained through', sub: 'Workshops & FDPs' },
+  { value: '250+', label: 'IPRs – Patents, Trademarks,', sub: 'Copyrights & Industrial Designs' },
+  { value: '1,500+', label: 'Research Publications Driving', sub: 'Science & Innovation' },
 ]
 
 // ── The Trueline Group flywheel ───────────────────────────────────────────
@@ -423,7 +393,7 @@ export const ETHICS = [
 // ── Insights ──────────────────────────────────────────────────────────────
 export const INSIGHT_CLUSTERS = [
   { name: 'Research Enablement', count: 'Methodology · biostatistics · intellectual property', to: '/research-enablement' },
-  { name: 'Centers of Excellence', count: 'Funding · setup · the campus Research Lab model', to: '/centers-of-excellence' },
+  { name: 'Centers of Excellence', count: 'Funding · setup · the campus Research Lab model', to: '/partnerships' },
   { name: 'Partnerships & Collaboration', count: 'Institutional & industry–academia collaboration', to: '/partnerships' },
 ]
 

@@ -26,7 +26,7 @@ const COLS = [
     heading: 'Services',
     links: [
       { label: 'Research Enablement', to: '/research-enablement' },
-      { label: 'Centers of Excellence', to: '/centers-of-excellence' },
+      { label: 'Centers of Excellence', to: '/partnerships' },
       { label: 'Partnerships & GCC', to: '/partnerships' },
       { label: 'Research-as-a-Service', to: '/partnerships#raas' },
     ],
