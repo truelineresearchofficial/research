@@ -20,7 +20,7 @@ export default function Enablement() {
       />
 
       {/* How enablement works */}
-      <section id="overview" className="py-24 scroll-mt-24">
+      <section id="overview" className="py-12 md:py-16 lg:py-20 scroll-mt-24">
         <Container>
           <SectionHead
             eyebrow="How enablement works"
@@ -46,7 +46,7 @@ export default function Enablement() {
       </section>
 
       {/* Services */}
-      <section className="bg-canvas py-24">
+      <section className="bg-canvas py-12 md:py-16 lg:py-20">
         <Container>
           <SectionHead
             eyebrow="What we enable"
@@ -87,7 +87,7 @@ export default function Enablement() {
       </section>
 
       {/* Grants band */}
-      <section id="grants" className="py-24 scroll-mt-24">
+      <section id="grants" className="py-12 md:py-16 lg:py-20 scroll-mt-24">
         <Container>
           <div className="overflow-hidden rounded-[2rem] border border-line bg-ink p-10 text-white lg:p-14">
             <div className="grid items-center gap-10 lg:grid-cols-2">
@@ -117,6 +117,7 @@ export default function Enablement() {
       </section>
 
       <CTABand
+        variant="light"
         eyebrow="For scholars & faculty"
         title="Map your research to a publishable path."
         body="A 30-minute working session with a Trueline mentor — bring your question, leave with a method."

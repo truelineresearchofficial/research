@@ -92,7 +92,7 @@ export default function Contact() {
         <Molecule className="h-full w-full animate-float" />
       </div>
 
-      <Container className="relative pb-24 pt-8">
+      <Container className="relative pb-12 md:pb-16 lg:pb-20 pt-8">
         <div className="max-w-2xl">
           <Reveal>
             <Eyebrow>Contact / Get Started</Eyebrow>
@@ -251,7 +251,7 @@ export default function Contact() {
         </div>
 
         {/* Our Offices */}
-        <div className="mt-24 text-center">
+        <div className="mt-12 lg:mt-16 text-center">
           <Reveal>
             <Eyebrow className="justify-center">Our Offices</Eyebrow>
           </Reveal>
@@ -261,7 +261,7 @@ export default function Contact() {
 
           {/* Headquarters */}
           <Reveal delay={0.1}>
-            <h3 className="mt-14 font-display text-xs font-semibold uppercase tracking-widest text-brand-600">
+            <h3 className="mt-10 lg:mt-12 font-display text-xs font-semibold uppercase tracking-widest text-brand-600">
               Headquarters
             </h3>
           </Reveal>
@@ -273,7 +273,7 @@ export default function Contact() {
 
           {/* Branch Offices */}
           <Reveal delay={0.15}>
-            <h3 className="mt-16 font-display text-xs font-semibold uppercase tracking-widest text-brand-600">
+            <h3 className="mt-10 lg:mt-12 font-display text-xs font-semibold uppercase tracking-widest text-brand-600">
               Branch Offices
             </h3>
           </Reveal>

@@ -7,6 +7,7 @@ import About from './pages/About'
 import Enablement from './pages/Enablement'
 import Startups from './pages/Startups'
 import LabIndustry from './pages/LabIndustry'
+import ForColleges from './pages/ForColleges'
 import Partnerships from './pages/Partnerships'
 import Insights from './pages/Insights'
 import Contact from './pages/Contact'
@@ -68,11 +69,12 @@ export default function App() {
           <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="/about" element={<About />} />
           <Route path="/research-enablement" element={<Enablement />} />
-          {/* CoE page retired — its content now lives on /partnerships. Redirect
-              so existing links and bookmarks resolve instead of 404-ing. */}
-          <Route path="/centers-of-excellence" element={<Navigate to="/partnerships" replace />} />
+          {/* CoE page retired — its content now lives on the Colleges / Institutions
+              page. Redirect so existing links and bookmarks resolve instead of 404-ing. */}
+          <Route path="/centers-of-excellence" element={<Navigate to="/for-colleges-institutions" replace />} />
           <Route path="/startups" element={<Startups />} />
           <Route path="/lab-industry" element={<LabIndustry />} />
+          <Route path="/for-colleges-institutions" element={<ForColleges />} />
           <Route path="/partnerships" element={<Partnerships />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/contact" element={<Contact />} />

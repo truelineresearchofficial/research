@@ -26,9 +26,9 @@ const COLS = [
     heading: 'Services',
     links: [
       { label: 'Research Enablement', to: '/research-enablement' },
-      { label: 'Centers of Excellence', to: '/partnerships' },
-      { label: 'Partnerships & GCC', to: '/partnerships' },
-      { label: 'Research-as-a-Service', to: '/partnerships#raas' },
+      { label: 'For Colleges / Institutions', to: '/for-colleges-institutions' },
+      { label: 'Partnerships', to: '/partnerships' },
+      { label: 'Research-as-a-Service', to: '/partnerships#commercialization' },
     ],
   },
   {
@@ -117,7 +117,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 border-t border-white/10 pt-7 text-center text-[13px] text-white">
+        <div className="mt-10 lg:mt-12 border-t border-white/10 pt-7 text-center text-[13px] text-white">
           <p>© 2026 Trueline Research · All rights reserved.</p>
         </div>
       </div>

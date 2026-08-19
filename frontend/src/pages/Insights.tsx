@@ -1,49 +1,26 @@
-import { useState } from 'react'
-import type { FormEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowUpRight, Mail, BookOpen, Calendar, FileText } from 'lucide-react'
+import { ArrowUpRight, BookOpen, Calendar, FileText } from 'lucide-react'
 import { Container, Reveal, SectionHead, Eyebrow } from '../lib/ui'
 import { ARTICLES, INSIGHT_CLUSTERS } from '../lib/content'
 import PageHero from '../components/PageHero'
 import Figure from '../components/Figure'
 import { IMG } from '../lib/images'
-import { submitForm, SubmitError } from '../lib/submit'
 
 const INSIGHT_IMG = [IMG.data, IMG.coins, IMG.neuron]
 
 const RESOURCES = [
-  { icon: BookOpen, t: 'Guides & Toolkits', b: 'Downloadable methodology and grant toolkits.', tag: 'Gated' },
-  { icon: Calendar, t: 'Webinars & Events', b: 'Cohort sessions and the StartNet Bio Summit.', tag: 'Live' },
-  { icon: FileText, t: 'Publications & Journal', b: 'The Trueline Publishers journal & proceedings.', tag: 'Open' },
+  { icon: BookOpen, t: 'Guides & Toolkits', b: 'Research methodology, proposal writing, publication, and IP resources.', tag: 'Gated' },
+  { icon: Calendar, t: 'Workshops & Events', b: 'Research workshops, FDPs, conferences, innovation programs, and training events.', tag: 'Live' },
+  { icon: FileText, t: 'Publications & Research Outputs', b: 'Research publications, conference proceedings, reports, patents, and innovation outcomes.', tag: 'Open' },
 ]
 
 export default function Insights() {
-  const [email, setEmail] = useState('')
-  const [done, setDone] = useState(false)
-  const [submitting, setSubmitting] = useState(false)
-  const [error, setError] = useState<string | null>(null)
-  const [hp, setHp] = useState('')
-
-  async function handleSubscribe(e: FormEvent) {
-    e.preventDefault()
-    setSubmitting(true)
-    setError(null)
-    try {
-      await submitForm({ form_type: 'newsletter', website: hp, email })
-      setDone(true)
-    } catch (err) {
-      setError(err instanceof SubmitError ? err.message : 'Something went wrong. Please try again.')
-    } finally {
-      setSubmitting(false)
-    }
-  }
-
   return (
     <>
       <PageHero
         eyebrow="Insights & Resources"
-        title={<>Trueline Spectrum — field notes from the research engine.</>}
-        intro="Insights that connect research, innovation, intellectual property, startup creation and Idea to Product — for researchers, students, faculty, institutions and industry."
+        title={<>Research, Innovation, Intellectual Property, Startup Creation, and Idea-to-Product Insights.</>}
+        intro="Insights that connect Research, Innovation, Intellectual Property, Startup Creation, Product Development, Research Visibility, and Real-World Impact — for Researchers, Students, Faculty, Institutions, Startups, and Industry."
         image={IMG.dna}
       />
 
@@ -69,7 +46,7 @@ export default function Insights() {
       {/* Featured articles */}
       <section className="pb-20">
         <Container>
-          <SectionHead eyebrow="Latest articles" title={<>Reading from the lab.</>} />
+          <SectionHead eyebrow="Latest Insights" title={<>Research, Innovation, Product Development, Intellectual Property, and Institutional Impact.</>} />
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {ARTICLES.map((a, i) => (
               <Reveal key={a.title} delay={i * 0.08}>
@@ -94,7 +71,7 @@ export default function Insights() {
       {/* Resources */}
       <section className="bg-canvas py-20">
         <Container>
-          <SectionHead eyebrow="Resources" title={<>Tools, events and the journal.</>} />
+          <SectionHead eyebrow="Research Resources" title={<>Guides, workshops and research outputs.</>} />
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {RESOURCES.map((r, i) => (
               <Reveal key={r.t} delay={i * 0.07}>
@@ -112,72 +89,20 @@ export default function Insights() {
         </Container>
       </section>
 
-      {/* Newsletter */}
-      <section className="py-24">
+      {/* Research CTA */}
+      <section className="py-12 md:py-16 lg:py-20">
         <Container>
           <div className="relative overflow-hidden rounded-[2rem] bg-ink p-10 text-white lg:p-14">
             <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-brand-500/25 blur-3xl" />
-            <div className="relative grid items-center gap-10 lg:grid-cols-2">
-              <div>
-                <Eyebrow className="text-brand-300">Trueline Spectrum</Eyebrow>
-                <h2 className="display mt-5 text-[clamp(1.8rem,4vw,2.7rem)] text-white text-balance">
-                  Get the monthly research brief.
-                </h2>
-                <p className="mt-5 text-lg leading-relaxed text-white/65">
-                  Methods, funding deadlines, CoE stories and AI-in-research — for researchers, departments,
-                  institutions and industry across India.
-                </p>
-              </div>
-              <div>
-                {done ? (
-                  <div className="rounded-2xl border border-brand-400/40 bg-brand-500/10 p-8 text-center">
-                    <Mail className="mx-auto h-8 w-8 text-brand-300" />
-                    <p className="mt-3 font-display text-lg font-semibold text-white">You’re subscribed.</p>
-                    <p className="mt-1 text-sm text-white/60">Watch your inbox for the next edition.</p>
-                  </div>
-                ) : (
-                  <form
-                    onSubmit={handleSubscribe}
-                    className="rounded-2xl border border-white/10 bg-white/[0.04] p-6"
-                  >
-                    {/* honeypot — off-screen; bots fill it and are silently dropped */}
-                    <input
-                      type="text"
-                      name="website"
-                      tabIndex={-1}
-                      autoComplete="off"
-                      aria-hidden="true"
-                      value={hp}
-                      onChange={(e) => setHp(e.target.value)}
-                      className="absolute left-[-9999px] h-0 w-0 opacity-0"
-                    />
-                    <label className="text-sm font-medium text-white/70">Work email</label>
-                    <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-                      <input
-                        type="email"
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="you@institution.edu"
-                        className="w-full rounded-full border border-white/15 bg-ink-2 px-5 py-3 text-sm text-white placeholder:text-white/35 focus:border-brand-400 focus:outline-none"
-                      />
-                      <button
-                        type="submit"
-                        disabled={submitting}
-                        className="btn-brand h-12 shrink-0 px-6 text-[15px] disabled:opacity-60"
-                      >
-                        {submitting ? 'Sending…' : 'Subscribe'}
-                      </button>
-                    </div>
-                    {error && (
-                      <p className="mt-3 text-sm font-medium text-red-300" role="alert">
-                        {error}
-                      </p>
-                    )}
-                    <p className="mt-3 text-xs text-white/40">Consent-first. Unsubscribe anytime. No selling of data — ever.</p>
-                  </form>
-                )}
-              </div>
+            <div className="relative max-w-2xl">
+              <Eyebrow className="text-brand-300">Research. Innovation. Impact.</Eyebrow>
+              <h2 className="display mt-5 text-[clamp(1.8rem,4vw,2.7rem)] text-white text-balance">
+                Discover multidisciplinary research, innovation ecosystems, intellectual property, startup
+                creation, and idea-to-product journeys powered by Trueline Research.
+              </h2>
+              <Link to="/research-enablement" className="btn-brand mt-8 inline-flex h-12 w-fit items-center gap-2 px-7 text-[15px]">
+                Explore Research Initiatives <ArrowUpRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </Container>

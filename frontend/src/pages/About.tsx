@@ -16,10 +16,10 @@ const IMPACT_STATS = [
   { value: 15000, title: ['Students Trained through', 'Workshops & Skill Development'] },
   { value: 5000, title: ['Faculty Trained through', 'Workshops & FDPs'] },
   { value: 250, title: ['IPRs – Patents, Trademarks,', 'Copyrights & Industrial Designs'] },
-  { value: 20, title: ['Industry Partners Empowered with', 'AI, LLM, CRM & Digital Solutions'] },
-  { value: 200, title: ['Academic Books', 'Published Worldwide'] },
+  { value: 20, title: ['Industry Partners Empowered', 'with AI, LLM, CRM & Digital Solutions'] },
+  { value: 200, title: ['Academic Books Published', 'Worldwide'] },
   { value: 1500, title: ['Research Publications Driving', 'Science & Innovation'] },
-  { value: 60, title: ['Scientific Progress Through', 'Conferences & Publications'] },
+  { value: 60, title: ['Scientific Progress through', 'Conferences & Publications'] },
 ]
 
 /** Counts up from 0 to `value` once, when scrolled into view. Respects reduced-motion. */
@@ -75,7 +75,7 @@ export default function About() {
       />
 
       {/* Founder Message */}
-      <section id="founder-message" className="bg-canvas py-24 scroll-mt-24">
+      <section id="founder-message" className="bg-canvas py-12 md:py-16 lg:py-20 scroll-mt-24">
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-12">
             <div className="lg:col-span-5">
@@ -161,7 +161,7 @@ export default function About() {
       </section>
 
       {/* Our Impact — statistic cards */}
-      <section id="our-impact" className="py-24 scroll-mt-24">
+      <section id="our-impact" className="py-12 md:py-16 lg:py-20 scroll-mt-24">
         <Container>
           <SectionHead
             align="center"
@@ -169,39 +169,41 @@ export default function About() {
             title={<>We Are Proud Of...</>}
             intro="Driving research, innovation, academic excellence, and industry collaboration through measurable achievements."
           />
-          <div className="mt-14 flex flex-wrap justify-center gap-5">
+        </Container>
+        {/* Wider centered wrapper so cards get more horizontal room than the standard 1240px container while keeping 5-per-row on desktop. */}
+        <div className="mx-auto mt-10 lg:mt-12 w-full max-w-[1800px] px-5 sm:px-8">
+          <div className="flex flex-wrap justify-center gap-5">
             {IMPACT_STATS.map((s, i) => (
               <Reveal
                 key={i}
                 delay={(i % 4) * 0.07}
                 className="flex w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc(20%-1rem)]"
               >
-                <div className="flex h-full w-full flex-col items-center justify-center rounded-3xl border border-line bg-white p-8 text-center shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-lg">
+                <div className="flex h-full w-full flex-col items-center justify-center rounded-3xl border border-line bg-white px-5 py-8 text-center shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-card-lg">
                   <div className="font-display text-4xl font-semibold sm:text-5xl">
                     <span className="text-spectrum">
                       <CountUp value={s.value} />+
                     </span>
                   </div>
-                  <p className="mt-4 whitespace-nowrap font-display text-[10px] font-semibold leading-relaxed text-ink">
-                    {s.title[0]}
-                    <br />
-                    {s.title[1]}
+                  {/* Balanced wrapping keeps the description to ~2 even lines on desktop without overflow; wraps naturally on smaller screens. */}
+                  <p className="mt-4 text-balance font-display text-[clamp(0.8125rem,0.9vw,0.9375rem)] font-medium leading-[1.4] text-ink">
+                    {s.title[0]} {s.title[1]}
                   </p>
                 </div>
               </Reveal>
             ))}
           </div>
-        </Container>
+        </div>
       </section>
 
       {/* Who we are */}
-      <section id="who" className="py-24 scroll-mt-24">
+      <section id="who" className="py-12 md:py-16 lg:py-20 scroll-mt-24">
         <Container>
-          <div className="grid gap-14 lg:grid-cols-12">
+          <div className="grid gap-10 lg:gap-12 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <Eyebrow>Who we are</Eyebrow>
               <h2 className="display mt-5 text-[clamp(1.8rem,4vw,2.8rem)] text-balance">
-                A research-enablement engine, built on a college network.
+                A research, innovation and impact ecosystem.
               </h2>
               <div className="mt-6 space-y-5 text-lg leading-relaxed text-ink-soft">
                 <p>
@@ -222,10 +224,10 @@ export default function About() {
             <div className="lg:col-span-5">
               <div className="grid gap-4 sm:grid-cols-2">
                 {[
-                  { icon: Target, t: 'Mission', b: 'Make researchers capable and institutions research-ready.' },
-                  { icon: Compass, t: 'Focus', b: 'AI-enabled life sciences & biomedical research — nothing scattered.' },
-                  { icon: BookOpen, t: 'Method', b: 'Enablement and methodology — never deliverables-for-hire.' },
-                  { icon: Rocket, t: 'Ambition', b: 'A recognised regional research & publishing engine.' },
+                  { icon: Target, t: 'Mission', b: 'Make Researchers capable and Institutions research-ready through structured enablement.' },
+                  { icon: Compass, t: 'Focus', b: 'Multidisciplinary Research, Innovation and Intellectual Property creation.' },
+                  { icon: BookOpen, t: 'Method', b: 'Capability-building through mentorship, collaboration and research-driven execution.' },
+                  { icon: Rocket, t: 'Vision', b: 'Transform Research into Innovation, Startups and Real-World Impact.' },
                 ].map((c, i) => (
                   <Reveal key={c.t} delay={i * 0.07}>
                     <div className="h-full rounded-2xl border border-line bg-canvas p-6">
@@ -242,7 +244,7 @@ export default function About() {
       </section>
 
       {/* Approach */}
-      <section id="approach" className="bg-canvas py-24 scroll-mt-24">
+      <section id="approach" className="bg-canvas py-12 md:py-16 lg:py-20 scroll-mt-24">
         <Container>
           <SectionHead
             eyebrow="Our approach"
@@ -282,7 +284,7 @@ export default function About() {
       </section>
 
       {/* Ethics */}
-      <section id="ethics" className="bg-canvas pt-24 pb-8 scroll-mt-24">
+      <section id="ethics" className="bg-canvas pt-12 md:pt-16 lg:pt-20 pb-8 scroll-mt-24">
         <Container>
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="flex flex-col lg:col-span-5">
@@ -291,8 +293,9 @@ export default function About() {
                 The non-negotiables we build into every page.
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-ink-soft">
-                No outcome guarantees. Consent-first data. COPE-aligned publishing ethics. The integrity
-                layer isn’t a disclaimer — it’s the product.
+                We help, guide, mentor, and empower researchers, institutions, innovators, startups, and
+                faculty members through ethical research, innovation, intellectual property development,
+                publication support, Idea-to-Product journeys, and real-world impact.
               </p>
               <Figure img={IMG.radiology} ratio="auto" rounded="rounded-2xl" className="mt-8 aspect-[4/3] border border-line lg:aspect-auto lg:min-h-[320px] lg:flex-1" />
             </div>
@@ -313,7 +316,7 @@ export default function About() {
       </section>
 
       {/* Careers */}
-      <section id="careers" className="bg-canvas py-24 scroll-mt-24">
+      <section id="careers" className="bg-canvas py-12 md:py-16 lg:py-20 scroll-mt-24">
         <Container>
           <div className="grid items-stretch gap-8 overflow-hidden rounded-[2rem] border border-line bg-white shadow-card md:grid-cols-2">
             <div className="flex flex-col items-start justify-center p-10 lg:p-12">
@@ -332,7 +335,7 @@ export default function About() {
         </Container>
       </section>
 
-      <CTABand />
+      <CTABand variant="light" />
     </>
   )
 }

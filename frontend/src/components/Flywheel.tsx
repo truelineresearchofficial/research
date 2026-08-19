@@ -175,14 +175,6 @@ export default function Flywheel({ data = GROUP, core, wrap = false }: FlywheelP
             )
           })}
         </svg>
-
-        {/* feed-in / scale-out labels */}
-        <div className="absolute -top-2 left-1/2 -translate-x-1/2 rounded-full border border-line bg-white px-3 py-1 text-[11px] font-semibold text-ink-soft shadow-card">
-          100+ college network ↓
-        </div>
-        <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 rounded-full border border-line bg-white px-3 py-1 text-[11px] font-semibold text-ink-soft shadow-card">
-          ↑ Innovation · IP · venture scale
-        </div>
       </div>
 
       {/* Detail panel */}

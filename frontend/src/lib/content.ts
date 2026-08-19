@@ -83,30 +83,63 @@ export const NAV: NavItem[] = [
     },
   },
   {
-    label: 'Partnerships & GCC',
-    to: '/partnerships',
+    label: 'For Colleges / Institutions',
+    to: '/for-colleges-institutions',
     columns: [
       {
-        heading: 'For institutions & industry',
-        audience: 'The scale play',
+        heading: 'Build the ecosystem',
+        audience: 'For campuses',
         items: [
-          { label: 'Institutions & universities', to: '/partnerships#gcc', note: 'Research capability · CoEs · joint IP' },
-          { label: 'Industry–academia collaboration', to: '/partnerships#gulf', note: 'Joint research · technology · IP' },
-          { label: 'Industry & CROs', to: '/partnerships#industry', note: 'Pharma · biotech · medtech' },
+          { label: 'Research Labs & Centers of Excellence', to: '/for-colleges-institutions#labs-coe', note: 'Co-branded research labs on campus' },
+          { label: 'Faculty Development Programs', to: '/for-colleges-institutions#faculty', note: 'FDPs, workshops & research training' },
+          { label: 'Student Research & Innovation', to: '/for-colleges-institutions#students', note: 'Real, fundable student research' },
+          { label: 'Institutional Challenges', to: '/for-colleges-institutions#challenges', note: 'What we help you solve' },
         ],
       },
       {
-        heading: 'Productized offerings',
+        heading: 'Research to impact',
         items: [
-          { label: 'Research-as-a-Service', to: '/partnerships#raas', note: 'Curation · annotation · lit-analytics' },
-          { label: 'Talent pipeline', to: '/partnerships#talent', note: 'CoE-trained graduates' },
-          { label: 'Government & policy programs', to: '/partnerships#policy', note: 'BioE3 · RDI Fund · TN policy' },
+          { label: 'IP & Commercialization', to: '/for-colleges-institutions#ip', note: 'Patents, copyrights & licensing' },
+          { label: 'Startup & Entrepreneurship', to: '/for-colleges-institutions#startups', note: 'A campus startup ecosystem' },
+          { label: 'Funding & Grant Enablement', to: '/for-colleges-institutions#funding', note: 'AICTE · DST · PM-USHA · BIRAC' },
+          { label: 'Institutional Impact Metrics', to: '/for-colleges-institutions#impact', note: 'Measurable research outcomes' },
+        ],
+      },
+    ],
+    feature: {
+      title: 'Build a Center of Excellence',
+      body: 'Turn your campus into a working Research Lab — funded through national grant schemes, co-branded, and built to compound.',
+      to: '/contact#institution',
+      cta: 'Build with us',
+    },
+  },
+  {
+    label: 'Partnerships',
+    to: '/partnerships',
+    columns: [
+      {
+        heading: 'Collaboration models',
+        audience: 'Academia × industry',
+        items: [
+          { label: 'Academic Partnerships', to: '/partnerships#academic', note: 'Universities & research institutions' },
+          { label: 'Industry Collaboration', to: '/partnerships#industry', note: 'Pharma · biotech · medtech · tech' },
+          { label: 'Research Networks', to: '/partnerships#networks', note: 'Multi-institution research networks' },
+          { label: 'Joint Research Programs', to: '/partnerships#joint-research', note: 'Co-designed research & IP' },
+        ],
+      },
+      {
+        heading: 'Research to venture',
+        items: [
+          { label: 'Innovation & Product Development', to: '/partnerships#innovation', note: 'Prototype to product' },
+          { label: 'IP Partnerships', to: '/partnerships#ip', note: 'Joint IP, licensing & tech transfer' },
+          { label: 'Startup & Venture Collaboration', to: '/partnerships#ventures', note: 'Acceleration & spinouts' },
+          { label: 'Research Commercialization', to: '/partnerships#commercialization', note: 'Research-as-a-Service' },
         ],
       },
     ],
     feature: {
       title: 'Start a partnership',
-      body: 'Research and innovation partnerships that connect institutions, researchers, industry and startups — built on a consented, multi-college research network across India.',
+      body: 'Multidisciplinary partnerships that connect academia, industry and startups — turning research into intellectual property, products and real-world impact.',
       to: '/contact#institution',
       cta: 'Open a conversation',
     },
@@ -123,15 +156,16 @@ export const NAV: NavItem[] = [
 
 export const UTILITY_LINKS: NavLeaf[] = [
   { label: 'For Scholars', to: '/research-enablement' },
-  { label: 'For Colleges / Institutions', to: '/partnerships' },
-  { label: 'Partnerships & GCC', to: '/partnerships' },
+  { label: 'For Colleges / Institutions', to: '/for-colleges-institutions' },
+  { label: 'Partnerships', to: '/partnerships' },
 ]
 
 export const GROUP_LINKS: NavLeaf[] = [
   { label: 'Trueline Research', to: 'https://truelineresearch.in/', note: 'Do the research', external: true },
   { label: 'Trueline Publishers', to: 'https://www.truelinepublisher.in/', note: 'Publish & credentialize', external: true },
+  { label: 'Trueline Spectrum', to: 'https://truelinespectrum.in/', note: 'The science magazine', external: true },
+  { label: 'Jaeid Journal', to: 'https://www.jaeid.com/', note: 'Peer-reviewed journal', external: true },
   { label: 'StartNet Ventures', to: 'https://startnetx.in/', note: 'Commercialize & partner', external: true },
-  { label: 'Trueline Spectrum', to: '/insights', note: 'The science magazine' },
 ]
 
 // ── Home: the three audience doors ────────────────────────────────────────
@@ -157,7 +191,7 @@ export const DOORS = [
     kicker: "I'm a College / Institution",
     title: 'Build research capability, multidisciplinary collaboration, and innovation pathways that move ideas toward real-world impact.',
     body: 'Centers of Excellence, research enablement and faculty & student development that build institutional research capability — from Research Lab to intellectual property, publication and real-world impact.',
-    to: '/partnerships',
+    to: '/for-colleges-institutions',
     cta: 'Build with us',
   },
 ]
@@ -178,7 +212,7 @@ export const PILLARS = [
     name: 'Build',
     title: 'We build Centers of Excellence inside colleges.',
     body: 'An asset-light lab network that turns campuses into engines for talent, data and intellectual property.',
-    to: '/partnerships',
+    to: '/for-colleges-institutions',
   },
   {
     id: 'partner',
@@ -230,40 +264,40 @@ export const ECOSYSTEM = [
     name: 'Trueline Research',
     short: 'Generates',
     role: 'Research & Innovation',
-    body: 'Delivering research consulting, product development support, AI solutions, data analytics, Centre of Excellence programs, and innovation services for academia, startups, and industry.',
-    output: 'Accelerating research, innovation, and technology development.',
+    body: 'Delivering Research Consulting, Product Development Support, AI solutions, Data Analytics, Centre of Excellence programs, and Innovation services for academia, Startups, and Industry.',
+    output: 'Accelerating Research, Innovation, and Technology Development.',
   },
   {
     id: 'publishers',
     name: 'Trueline Publishers',
     short: 'Credentializes',
-    role: 'Academic Publishing House',
-    body: 'Providing ethical publishing through peer-reviewed journals, books, conference proceedings, editorial services, DOI support, plagiarism screening, and indexing guidance.',
-    output: 'Building academic credibility and global visibility.',
+    role: 'Research Publishing House',
+    body: 'Providing Ethical Publishing through Scopus, Web of Science, Indexed, Peer-Reviewed AI Journals, Books, Conference Proceedings, Editorial Services, DOI support, Plagiarism Screening, and Indexing Guidance.',
+    output: 'Building Academic Credibility and Global Visibility.',
   },
   {
     id: 'spectrum',
     name: 'Trueline Spectrum',
     short: 'Amplifies',
     role: 'Monthly Research Magazine',
-    body: 'A monthly digital magazine featuring research, education, technology, startups, industry insights, expert articles, interviews, success stories, and emerging innovations.',
-    output: 'Connecting ideas, knowledge, and innovation.',
+    body: 'A Monthly Digital Magazine Featuring Research, Education, Technology, Startups, Industry Insights, Expert Articles, Iterviews, Sccess stories, and Emerging Innovations.',
+    output: 'Connecting Ideas, Knowledge, and Innovation.',
   },
   {
     id: 'jaeid',
     name: 'JAEID',
     short: 'Publishes',
-    role: 'Peer-Reviewed Journal',
-    body: 'Publishing high-quality original research, reviews, and case studies across AI, biomedical sciences, life sciences, engineering, technology, and multidisciplinary research through a rigorous peer-review process.',
-    output: 'Advancing scientific excellence through ethical publishing.',
+    role: 'Peer-Reviewed AI Journal',
+    body: 'Publishing High-quality Original Research, Reviews, and Case Studies across AI, Biomedical Sciences, life Sciences, Engineering, Technology, and Multidisciplinary research through a rigorous Peer-Review Process.',
+    output: 'Advancing Scientific Excellence through Ethical Publishing.',
   },
   {
     id: 'startnet',
     name: 'StartNet',
     short: 'Innovates',
     role: 'Startup Growth Platform',
-    body: 'Supporting startups with incubation, acceleration, mentoring, funding readiness, innovation programs, industry partnerships, networking, and business growth opportunities.',
-    output: 'Empowering startups to innovate, scale, and succeed.',
+    body: 'Supporting Startups with Incubation, Acceleration, Mentoring, Funding Readiness, Innovation Programs, Industry Partnerships, Networking, and Business Growth Opportunities.',
+    output: 'Empowering Startups to Innovate, Scale, and Succeed.',
   },
 ]
 
@@ -357,8 +391,8 @@ export const PARTNER_TRACKS = [
   {
     id: 'gcc',
     name: 'Institutions & Universities',
-    body: 'Deep collaboration with colleges, universities and research institutions to build research capability, establish Research Labs and Centers of Excellence, and pursue joint research, intellectual property and credible publication.',
-    points: ['Research capability building', 'Joint Research Labs & CoEs', 'Co-authored publications & IP'],
+    body: 'Build innovation ecosystems that help students, researchers, faculty, and startups transform ideas into prototypes, intellectual property, products, ventures, and societal impact through multidisciplinary research and collaboration.',
+    points: ['Research capability building', 'Joint Research Labs & CoEs', 'Idea to Product'],
   },
   {
     id: 'gulf',
@@ -368,8 +402,8 @@ export const PARTNER_TRACKS = [
   },
   {
     id: 'industry',
-    name: 'Industry & CROs',
-    body: 'Collaboration with pharma, biotech and medtech on focused research, data work and methodology — bridging academia and industry to accelerate innovation and real-world impact.',
+    name: 'Product Development & Innovation',
+    body: 'Transform research outcomes into innovative products through multidisciplinary collaboration, validation, prototyping, intellectual property development, and commercialization pathways that create real-world impact.',
     points: ['Pharma / biotech / medtech', 'Methodology & data analysis', 'Academia–industry collaboration'],
   },
 ]
@@ -383,37 +417,37 @@ export const RAAS = [
 
 // ── Ethics charter ────────────────────────────────────────────────────────
 export const ETHICS = [
-  'We enable capability — we never ghostwrite theses or sell authorship.',
-  'We make no publication guarantees; integrity outranks any outcome.',
-  'We operate on explicit, consent-first data use with IRB / ethics alignment.',
-  'We align to COPE-style publishing ethics across the Trueline Group.',
-  'We disclose AI assistance transparently and keep the researcher the author.',
+  'We guide researchers through every stage of the research and innovation journey.',
+  'We support multidisciplinary collaboration that transforms ideas into products, technologies, and impactful solutions.',
+  'We help institutions build strong research ecosystems, Centers of Excellence, and innovation-driven cultures.',
+  'We mentor researchers in publications, intellectual property creation, grants, startup development, and commercialization pathways.',
+  'We promote responsible, transparent, and ethical research practices that create meaningful academic, industrial, and societal impact.',
 ]
 
 // ── Insights ──────────────────────────────────────────────────────────────
 export const INSIGHT_CLUSTERS = [
-  { name: 'Research Enablement', count: 'Methodology · biostatistics · intellectual property', to: '/research-enablement' },
-  { name: 'Centers of Excellence', count: 'Funding · setup · the campus Research Lab model', to: '/partnerships' },
-  { name: 'Partnerships & Collaboration', count: 'Institutional & industry–academia collaboration', to: '/partnerships' },
+  { name: 'Research Enablement', count: 'Methodology · Research Design · Biostatistics · Intellectual Property', to: '/research-enablement' },
+  { name: 'Centers of Excellence', count: 'Research Infrastructure · Innovation Ecosystems · Capacity Building', to: '/for-colleges-institutions' },
+  { name: 'Partnerships & Collaboration', count: 'Institutional Partnerships · Industry Collaboration · Research Networks', to: '/partnerships' },
 ]
 
 export const ARTICLES = [
   {
-    tag: 'Biostatistics',
-    title: 'Sample size, before you collect a single data point',
-    excerpt: 'Why power analysis is the cheapest insurance in your entire study — and how to justify it to a reviewer.',
+    tag: 'Research Methodology',
+    title: 'Designing High-Impact Research Projects from Concept to Publication',
+    excerpt: 'A practical path from research question and study design to biostatistics, methodology and a credible, publishable outcome.',
     read: '6 min read',
   },
   {
-    tag: 'Centers of Excellence',
-    title: 'How a Tamil Nadu college funds a bioinformatics lab without touching its own budget',
-    excerpt: 'Mapping IDEA Lab, DST-FIST and the 50% bio-incubator subsidy to a real CoE setup cost.',
-    read: '9 min read',
+    tag: 'Intellectual Property',
+    title: 'From Research Outcomes to Patents, Copyrights, and Commercialization',
+    excerpt: 'Turning research outcomes into patents, copyrights and industrial designs — and mapping clear pathways to commercialization.',
+    read: '8 min read',
   },
   {
-    tag: 'AI in Research',
-    title: 'The consented data moat: research-as-a-service the right way',
-    excerpt: 'How a multi-college network becomes a defensible, ethics-first research asset for institutional and industry partners.',
+    tag: 'AI & Innovation',
+    title: 'How AI Accelerates Multidisciplinary Research and Product Development',
+    excerpt: 'How AI and multidisciplinary collaboration compress the distance from research to prototype, product and real-world impact.',
     read: '7 min read',
   },
 ]

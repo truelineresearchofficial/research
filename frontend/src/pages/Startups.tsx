@@ -73,14 +73,14 @@ export default function Startups() {
       />
 
       {/* A — From Idea to Product */}
-      <section className="py-24">
+      <section className="py-12 md:py-16 lg:py-20">
         <Container>
           <SectionHead
             eyebrow="From idea to product"
             title={<>A disciplined path from problem to product.</>}
             intro="We move ideas through a structured, research-backed sequence — so what you build is validated, protectable and ready for the real world."
           />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 lg:mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {IDEA_TO_PRODUCT.map((c, i) => {
               const Icon = c.icon
               return (
@@ -103,9 +103,9 @@ export default function Startups() {
       </section>
 
       {/* B — Research & Innovation Support */}
-      <section className="bg-canvas py-24">
+      <section className="bg-canvas py-12 md:py-16 lg:py-20">
         <Container>
-          <div className="grid items-center gap-14 lg:grid-cols-2">
+          <div className="grid items-center gap-10 lg:gap-12 lg:grid-cols-2">
             <Reveal>
               <Figure img={IMG.data} ratio="photo" rounded="rounded-[2rem]" scrim="soft" className="border border-line shadow-card-lg" />
             </Reveal>
@@ -137,7 +137,7 @@ export default function Startups() {
       </section>
 
       {/* C — Intellectual Property (dark band) */}
-      <section className="relative overflow-hidden bg-ink py-24 text-white">
+      <section className="relative overflow-hidden bg-ink py-12 md:py-16 lg:py-20 text-white">
         <div className="pointer-events-none absolute inset-0 opacity-[0.12]">
           <img src={IMG.neuron.src} alt="" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/50" />
@@ -171,14 +171,14 @@ export default function Startups() {
       </section>
 
       {/* D — Venture Development */}
-      <section className="py-24">
+      <section className="py-12 md:py-16 lg:py-20">
         <Container>
           <SectionHead
             eyebrow="Venture development"
             title={<>From validated product to growing venture.</>}
             intro="Once the product is real and protected, we help move it toward a venture — validated, commercialized and connected to the wider ecosystem."
           />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 lg:mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {VENTURE.map((c, i) => {
               const Icon = c.icon
               return (
@@ -198,7 +198,7 @@ export default function Startups() {
       </section>
 
       {/* E — Our Approach */}
-      <section className="bg-canvas py-24">
+      <section className="bg-canvas py-12 md:py-16 lg:py-20">
         <Container>
           <SectionHead
             align="center"
@@ -206,7 +206,7 @@ export default function Startups() {
             title={<>One path, research to impact.</>}
             intro="Every venture we support follows the same throughline — from research to real-world impact."
           />
-          <div className="mt-14">
+          <div className="mt-10 lg:mt-12">
             <FlowSteps steps={APPROACH} />
           </div>
         </Container>

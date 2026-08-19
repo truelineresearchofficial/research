@@ -97,14 +97,14 @@ export default function LabIndustry() {
       />
 
       {/* A — Research Capability Building */}
-      <section className="py-24">
+      <section className="py-12 md:py-16 lg:py-20">
         <Container>
           <SectionHead
             eyebrow="Research capability building"
             title={<>The foundations of credible research.</>}
             intro="We help labs and organisations build lasting research capability — the infrastructure, people, methods and data that serious research depends on."
           />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 lg:mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {CAPABILITY.map((c, i) => {
               const Icon = c.icon
               return (
@@ -124,9 +124,9 @@ export default function LabIndustry() {
       </section>
 
       {/* B — Multidisciplinary Collaboration */}
-      <section className="bg-canvas py-24">
+      <section className="bg-canvas py-12 md:py-16 lg:py-20">
         <Container>
-          <div className="grid items-center gap-14 lg:grid-cols-2">
+          <div className="grid items-center gap-10 lg:gap-12 lg:grid-cols-2">
             <div>
               <Eyebrow>Multidisciplinary collaboration</Eyebrow>
               <h2 className="display mt-5 text-[clamp(1.8rem,4vw,2.7rem)] text-balance">
@@ -152,7 +152,7 @@ export default function LabIndustry() {
       </section>
 
       {/* C — Industry Research Partnerships (dark band) */}
-      <section className="relative overflow-hidden bg-ink py-24 text-white">
+      <section className="relative overflow-hidden bg-ink py-12 md:py-16 lg:py-20 text-white">
         <div className="pointer-events-none absolute inset-0 opacity-[0.12]">
           <img src={IMG.microscopes.src} alt="" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/50" />
@@ -186,14 +186,14 @@ export default function LabIndustry() {
       </section>
 
       {/* D — Innovation & Product Development */}
-      <section className="py-24">
+      <section className="py-12 md:py-16 lg:py-20">
         <Container>
           <SectionHead
             eyebrow="Innovation & product development"
             title={<>From industry problem to real product.</>}
             intro="A structured route that turns a defined industry problem into a validated, real-world product."
           />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 lg:mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {INNOVATION.map((c, i) => {
               const Icon = c.icon
               return (
@@ -216,14 +216,14 @@ export default function LabIndustry() {
       </section>
 
       {/* E — Research Visibility */}
-      <section className="bg-canvas py-24">
+      <section className="bg-canvas py-12 md:py-16 lg:py-20">
         <Container>
           <SectionHead
             eyebrow="Research visibility"
             title={<>Make the research seen — and credited.</>}
             intro="Capability matters most when the world can see it. We help carry research into publications, IP, conferences and the conversations that shape a field."
           />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 lg:mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {VISIBILITY.map((c, i) => {
               const Icon = c.icon
               return (
@@ -243,7 +243,7 @@ export default function LabIndustry() {
       </section>
 
       {/* F — Collaboration Journey */}
-      <section className="py-24">
+      <section className="py-12 md:py-16 lg:py-20">
         <Container>
           <SectionHead
             align="center"
@@ -251,7 +251,7 @@ export default function LabIndustry() {
             title={<>From industry challenge to real-world impact.</>}
             intro="Every collaboration follows the same throughline — problem to research to product to impact."
           />
-          <div className="mt-14">
+          <div className="mt-10 lg:mt-12">
             <FlowSteps steps={JOURNEY} />
           </div>
         </Container>
