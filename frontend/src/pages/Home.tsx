@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import {
@@ -18,7 +18,7 @@ import Flywheel from '../components/Flywheel'
 import CTABand from '../components/CTABand'
 import Figure from '../components/Figure'
 import { IMG } from '../lib/images'
-import { HelixLines, Molecule } from '../components/Marks'
+import { Molecule } from '../components/Marks'
 
 const DOOR_ICONS = [Rocket, FlaskConical, Building2]
 const DOOR_IMG = [IMG.teamLaptops, IMG.microscopes, IMG.campusClassic]
@@ -29,6 +29,7 @@ export default function Home() {
     <>
       <Hero />
       <ProofStrip />
+      <FindYourPath />
       <Pillars />
       <CoETeaser />
       <GroupSection />
@@ -49,45 +50,168 @@ export default function Home() {
 // ── Hero ──────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-canvas pt-[68px] lg:pt-[104px]">
-      <div className="pointer-events-none absolute inset-0 bg-grid-fine opacity-70" />
-      <div className="pointer-events-none absolute -left-40 top-0 h-[500px] w-[500px] rounded-full bg-brand-200/40 blur-[120px]" />
-      <div className="pointer-events-none absolute right-0 top-20 h-[420px] w-[420px] rounded-full bg-sky/10 blur-[110px]" />
+    <section className="relative overflow-hidden bg-gradient-to-br from-white via-[#F4FBFB] to-[#EAF7F8] pt-[68px] lg:pt-[104px]">
+      <HeroBackgroundVideo />
 
-      <Container className="relative pb-10 pt-8 lg:pt-12">
-        <div className="grid items-center gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <Reveal>
-              <Eyebrow>Multidisciplinary research &amp; product development</Eyebrow>
-            </Reveal>
-            <Reveal delay={0.06}>
-              <h1 className="display mt-6 text-[clamp(2.7rem,6.2vw,4.7rem)] text-balance">
-                Where Multidisciplinary Research{' '}
-                <span className="text-spectrum">becomes meaningful impact.</span>
-              </h1>
-            </Reveal>
-            <Reveal delay={0.12}>
-              <p className="mt-7 max-w-xl text-xl leading-relaxed text-ink-soft text-pretty">
-                We make Researchers capable, build Centers of Excellence inside Colleges, and partner with Institutions across India — turning a Startup network into multidisciplinary Talent, Research, Data, and Intellectual Property with a strong focus on Idea to Product.
-              </p>
-            </Reveal>
-            <Reveal delay={0.18}>
-              <div className="mt-9 flex flex-wrap items-center gap-3">
-                <Link to="/contact" className="btn-brand h-12 px-7 text-[15px]">
-                  Get Started <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </Reveal>
-          </div>
+      <div className="relative">
+        <Container className="relative z-10 pb-10 pt-8 lg:pt-12">
+          <div className="grid items-center gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-7">
+              <Reveal>
+                <Eyebrow>Multidisciplinary research &amp; product development</Eyebrow>
+              </Reveal>
+              <Reveal delay={0.06}>
+                <h1 className="display mt-6 text-[clamp(2.7rem,6.2vw,4.7rem)] text-balance">
+                  Where Multidisciplinary Research{' '}
+                  <span className="text-spectrum">becomes meaningful impact.</span>
+                </h1>
+              </Reveal>
+              <Reveal delay={0.12}>
+                <p className="mt-7 max-w-xl text-xl leading-relaxed text-ink-soft text-pretty">
+                  We make Researchers capable, build Centers of Excellence inside Colleges, and partner with Institutions across India — turning a Startup network into multidisciplinary Talent, Research, Data, and Intellectual Property with a strong focus on Idea to Product.
+                </p>
+              </Reveal>
+              <Reveal delay={0.18}>
+                <div className="mt-9 flex flex-wrap items-center gap-3">
+                  <Link to="/contact" className="btn-brand h-12 px-7 text-[15px]">
+                    Get Started <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </Reveal>
+            </div>
 
-          <div className="lg:col-span-5">
-            <HeroVisual />
+            <div className="lg:col-span-5">
+              <HeroVisual />
+            </div>
           </div>
-        </div>
+        </Container>
+      </div>
+    </section>
+  )
+}
+
+function HeroVisual() {
+  return <div aria-hidden="true" className="pointer-events-none hidden w-full lg:block lg:min-h-[460px]" />
+}
+
+// Full-bleed cinematic background video for the hero, with a static poster
+// fallback shown only while the clip is loading. Autoplay/loop background
+// video is non-essential, low-motion decoration, so it plays regardless of
+// prefers-reduced-motion rather than being swapped for a static image.
+function HeroBackgroundVideo() {
+  const videoRef = useRef<HTMLVideoElement | null>(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    // React's `muted` JSX prop sets the attribute but doesn't reliably commit
+    // the live DOM property before the browser's autoplay gate runs — set it
+    // imperatively so muted autoplay is never blocked by that race.
+    video.muted = true
+    video.defaultMuted = true
+
+    let cancelled = false
+
+    const resumeOnInteraction = () => {
+      video.play().catch(() => {})
+    }
+
+    const attemptPlay = () => {
+      if (cancelled) return
+      video.play().catch(() => {
+        // Autoplay was blocked outright (policy, data-saver, etc.) — fall
+        // back to starting playback on the first user interaction instead of
+        // leaving the poster frame showing indefinitely.
+        document.addEventListener('pointerdown', resumeOnInteraction, { once: true })
+        document.addEventListener('keydown', resumeOnInteraction, { once: true })
+        document.addEventListener('touchstart', resumeOnInteraction, { once: true })
+      })
+    }
+
+    if (video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+      attemptPlay()
+    } else {
+      video.addEventListener('canplay', attemptPlay, { once: true })
+    }
+
+    if (import.meta.env.DEV) {
+      const logState = (label: string) => () => {
+        // eslint-disable-next-line no-console
+        console.debug(`[HeroBackgroundVideo] ${label}`, {
+          src: video.currentSrc,
+          readyState: video.readyState,
+          paused: video.paused,
+          currentTime: video.currentTime,
+          error: video.error,
+        })
+      }
+      video.addEventListener('loadedmetadata', logState('loadedmetadata'))
+      video.addEventListener('playing', logState('playing'))
+      video.addEventListener('stalled', logState('stalled'))
+      video.addEventListener('error', logState('error'))
+    }
+
+    return () => {
+      cancelled = true
+      video.removeEventListener('canplay', attemptPlay)
+      document.removeEventListener('pointerdown', resumeOnInteraction)
+      document.removeEventListener('keydown', resumeOnInteraction)
+      document.removeEventListener('touchstart', resumeOnInteraction)
+    }
+  }, [])
+
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+      <video
+        ref={videoRef}
+        src="/videos/hero-background.mp4"
+        className="absolute inset-0 h-full w-full object-cover object-center"
+        poster={IMG.labBench.src}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        tabIndex={-1}
+      />
+
+      {/* Subtle white / light-teal brand wash so hero copy stays readable over the clip */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'linear-gradient(135deg, rgba(255,255,255,0.90) 0%, rgba(244,251,251,0.84) 42%, rgba(0,169,157,0.14) 76%, rgba(0,44,113,0.10) 100%)',
+        }}
+      />
+    </div>
+  )
+}
+
+// ── Proof strip ───────────────────────────────────────────────────────────
+function ProofStrip() {
+  return (
+    <section className="border-y border-line bg-white">
+      <Container className="grid grid-cols-2 gap-px lg:grid-cols-4">
+        {PROOF.map((p, i) => (
+          <Reveal key={p.label} delay={i * 0.06} className="px-2 py-9 sm:px-6">
+            <div className="font-display text-4xl font-semibold text-ink sm:text-5xl">
+              <span className="text-spectrum">{p.value}</span>
+            </div>
+            <div className="mt-2 text-[15px] font-medium text-ink">{p.label}</div>
+            <div className="mt-1 text-sm text-ink-faint">{p.sub}</div>
+          </Reveal>
+        ))}
       </Container>
+    </section>
+  )
+}
 
-      {/* Three doors */}
-      <Container className="relative pb-16">
+// ── Find your path ────────────────────────────────────────────────────────
+function FindYourPath() {
+  return (
+    <section className="bg-white py-14 md:py-16 lg:py-20">
+      <Container>
         <Reveal delay={0.1}>
           <p className="mb-4 text-sm font-medium text-ink-faint">Find your path —</p>
         </Reveal>
@@ -125,41 +249,6 @@ function Hero() {
             )
           })}
         </div>
-      </Container>
-    </section>
-  )
-}
-
-function HeroVisual() {
-  return (
-    <Reveal delay={0.2} className="relative mx-auto max-w-md lg:mr-0">
-      {/* Signature photograph */}
-      <Figure
-        img={IMG.engineerLab}
-        ratio="tall"
-        eager
-        rounded="rounded-[2rem]"
-        scrim="soft"
-        className="border border-line shadow-card-lg"
-      />
-    </Reveal>
-  )
-}
-
-// ── Proof strip ───────────────────────────────────────────────────────────
-function ProofStrip() {
-  return (
-    <section className="border-y border-line bg-white">
-      <Container className="grid grid-cols-2 gap-px lg:grid-cols-4">
-        {PROOF.map((p, i) => (
-          <Reveal key={p.label} delay={i * 0.06} className="px-2 py-9 sm:px-6">
-            <div className="font-display text-4xl font-semibold text-ink sm:text-5xl">
-              <span className="text-spectrum">{p.value}</span>
-            </div>
-            <div className="mt-2 text-[15px] font-medium text-ink">{p.label}</div>
-            <div className="mt-1 text-sm text-ink-faint">{p.sub}</div>
-          </Reveal>
-        ))}
       </Container>
     </section>
   )
