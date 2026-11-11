@@ -94,9 +94,10 @@ function HeroVisual() {
   return <div aria-hidden="true" className="pointer-events-none hidden w-full lg:block lg:min-h-[460px]" />
 }
 
-// Full-bleed cinematic background video for the hero, with a static poster
-// fallback shown only while the clip is loading. Autoplay/loop background
-// video is non-essential, low-motion decoration, so it plays regardless of
+// Full-bleed cinematic background video for the hero. No poster/placeholder
+// image — only a subtle brand-dark background color shows for the instant
+// before the first frame paints. Autoplay/loop background video is
+// non-essential, low-motion decoration, so it plays regardless of
 // prefers-reduced-motion rather than being swapped for a static image.
 function HeroBackgroundVideo() {
   const videoRef = useRef<HTMLVideoElement | null>(null)
@@ -162,12 +163,11 @@ function HeroBackgroundVideo() {
   }, [])
 
   return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden bg-[#06313d]">
       <video
         ref={videoRef}
         src="/videos/hero-background.mp4"
         className="absolute inset-0 h-full w-full object-cover object-center"
-        poster={IMG.labBench.src}
         autoPlay
         loop
         muted
