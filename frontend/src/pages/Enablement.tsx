@@ -73,7 +73,7 @@ export default function Enablement() {
                       <p className="text-xs font-semibold uppercase tracking-wider text-brand-600">How Trueline enables</p>
                       <p className="mt-2 text-[15px] leading-relaxed text-ink">{s.enable}</p>
                       {s.crossLink && (
-                        <ArrowLink to={s.crossLink.to} className="mt-3">
+                        <ArrowLink to={s.crossLink.to} external={s.crossLink.external} className="mt-3">
                           Continue with {s.crossLink.label}
                         </ArrowLink>
                       )}

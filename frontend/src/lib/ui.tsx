@@ -77,18 +77,27 @@ export function ArrowLink({
   to,
   children,
   className = '',
+  external = false,
 }: {
   to: string
   children: ReactNode
   className?: string
+  external?: boolean
 }) {
-  return (
-    <Link
-      to={to}
-      className={`group inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 transition-colors hover:text-brand-700 ${className}`}
-    >
+  const cls = `group inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 transition-colors hover:text-brand-700 ${className}`
+  const inner = (
+    <>
       <span className="link-underline">{children}</span>
       <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+    </>
+  )
+  return external ? (
+    <a href={to} target="_blank" rel="noopener noreferrer" className={cls}>
+      {inner}
+    </a>
+  ) : (
+    <Link to={to} className={cls}>
+      {inner}
     </Link>
   )
 }

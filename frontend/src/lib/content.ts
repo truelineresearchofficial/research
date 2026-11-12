@@ -358,7 +358,7 @@ export const ENABLEMENT_SERVICES = [
     enable: 'Structure, reporting-standard alignment, language and submission readiness — handed off to Trueline Publishers for the journey to print.',
     forWho: 'Authors preparing to submit.',
     format: '1:1',
-    crossLink: { label: 'Trueline Publishers', to: '/about#group' },
+    crossLink: { label: 'Trueline Publishers', to: 'https://www.truelinepublisher.in/', external: true },
   },
 ]
 
