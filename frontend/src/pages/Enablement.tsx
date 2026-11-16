@@ -50,17 +50,24 @@ export default function Enablement() {
         <Container>
           <SectionHead
             eyebrow="What we enable"
-            title={<>Eight capabilities, one standard of rigor.</>}
+            title={<>Seven capabilities, one standard of rigor.</>}
           />
-          <div className="mt-12 space-y-5">
+          <div className="mt-12 overflow-hidden rounded-[2rem] border border-line bg-white shadow-card">
             {ENABLEMENT_SERVICES.map((s, i) => (
               <Reveal key={s.id} delay={Math.min(i * 0.04, 0.2)}>
-                <div id={s.id} className="grid scroll-mt-28 gap-6 rounded-3xl border border-line bg-white p-8 lg:grid-cols-12 lg:p-10">
+                <div
+                  id={s.id}
+                  className={`grid scroll-mt-28 gap-6 px-6 py-9 sm:px-10 sm:py-10 lg:grid-cols-12 lg:gap-8 ${
+                    i !== 0 ? 'border-t border-[#E4E7EC]' : ''
+                  }`}
+                >
                   <div className="lg:col-span-4">
-                    <span className="text-sm font-semibold text-brand-600">{String(i + 1).padStart(2, '0')}</span>
-                    <h3 className="mt-2 font-display text-2xl font-medium leading-snug text-ink">{s.name}</h3>
+                    <span className="font-display text-sm font-semibold tracking-wide text-[#00A99D]">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <h3 className="mt-2 font-display text-2xl font-medium leading-snug text-[#002C71]">{s.name}</h3>
                     <div className="mt-4 flex flex-wrap gap-2">
-                      <span className="rounded-full bg-canvas px-3 py-1 text-xs font-medium text-ink-soft">{s.format}</span>
+                      <span className="rounded-full bg-[#00A99D]/10 px-3 py-1 text-xs font-medium text-[#00A99D]">{s.format}</span>
                       <span className="rounded-full bg-canvas px-3 py-1 text-xs font-medium text-ink-soft">{s.forWho}</span>
                     </div>
                   </div>
@@ -70,7 +77,7 @@ export default function Enablement() {
                       <p className="mt-2 text-[15px] leading-relaxed text-ink-soft">{s.problem}</p>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-brand-600">How Trueline enables</p>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-[#00A99D]">How Trueline enables</p>
                       <p className="mt-2 text-[15px] leading-relaxed text-ink">{s.enable}</p>
                       {s.crossLink && (
                         <ArrowLink to={s.crossLink.to} external={s.crossLink.external} className="mt-3">

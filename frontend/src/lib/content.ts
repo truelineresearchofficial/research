@@ -304,12 +304,28 @@ export const ECOSYSTEM = [
 // ── Research Enablement services ──────────────────────────────────────────
 export const ENABLEMENT_SERVICES = [
   {
+    id: 'training',
+    name: 'Research Methodology Training',
+    problem: 'Departments lack a shared, rigorous research-methods foundation.',
+    enable: 'Cohort programs and workshops on design, ethics, reproducibility and scientific writing, delivered on campus or online.',
+    forWho: 'Departments, cohorts and research scholars.',
+    format: 'Cohort',
+  },
+  {
     id: 'phd',
     name: 'PhD & Thesis Mentoring',
     problem: 'Scholars stall on framing a defensible question, a rigorous method, and a defense-ready structure.',
     enable: 'Structured 1:1 mentoring across methodology, study design, structure and defense preparation — you build the skill and own the work.',
     forWho: 'Doctoral and post-graduate researchers in the life sciences.',
     format: '1:1 mentoring',
+  },
+  {
+    id: 'grants',
+    name: 'Grant & Funding Support',
+    problem: 'Strong ideas lose funding to weak framing of aims, methods and budgets.',
+    enable: 'Proposal architecture, methods and budget justification for ICMR, DBT/BIRAC, DST and SERB calls — you stay the PI.',
+    forWho: 'Faculty and early-career investigators.',
+    format: 'Workshop + 1:1',
   },
   {
     id: 'biostats',
@@ -334,22 +350,6 @@ export const ENABLEMENT_SERVICES = [
     enable: 'Protocol design, search strategy, screening, risk-of-bias assessment and meta-analysis — methodology-first, audit-ready.',
     forWho: 'Faculty and scholars building an evidence base.',
     format: '1:1 + cohort',
-  },
-  {
-    id: 'grants',
-    name: 'Grant & Funding Support',
-    problem: 'Strong ideas lose funding to weak framing of aims, methods and budgets.',
-    enable: 'Proposal architecture, methods and budget justification for ICMR, DBT/BIRAC, DST and SERB calls — you stay the PI.',
-    forWho: 'Faculty and early-career investigators.',
-    format: 'Workshop + 1:1',
-  },
-  {
-    id: 'training',
-    name: 'Research Methodology Training',
-    problem: 'Departments lack a shared, rigorous research-methods foundation.',
-    enable: 'Cohort programs and workshops on design, ethics, reproducibility and scientific writing, delivered on campus or online.',
-    forWho: 'Departments, cohorts and research scholars.',
-    format: 'Cohort',
   },
   {
     id: 'manuscript',
