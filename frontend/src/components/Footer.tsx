@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Mail, MapPin, Linkedin, Instagram, Facebook } from 'lucide-react'
+import { Mail, MapPin, Linkedin, Instagram, Facebook, ExternalLink } from 'lucide-react'
 import { BRAND, CONTACT_INFO } from '../lib/content'
 import logo from '../assets/logo.png'
 
@@ -34,10 +34,10 @@ const COLS = [
   {
     heading: 'Trueline Group',
     links: [
-      { label: 'Trueline Research', to: '/' },
-      { label: 'Trueline Publishers', to: '/about#group' },
-      { label: 'StartNet', to: '/about#group' },
-      { label: 'Trueline Spectrum', to: '/insights' },
+      { label: 'Trueline Research', href: 'https://truelineresearch.in/' },
+      { label: 'Trueline Publisher', href: 'https://www.truelinepublisher.in/' },
+      { label: 'StartNet', href: 'https://startnetx.in/' },
+      { label: 'Trueline Spectrum', href: 'https://truelinespectrum.in/' },
     ],
   },
   {
@@ -106,9 +106,21 @@ export default function Footer() {
                 <ul className="mt-4 space-y-2.5">
                   {col.links.map((l) => (
                     <li key={l.label}>
-                      <Link to={l.to} className="text-sm text-white transition-colors hover:text-brand-300">
-                        {l.label}
-                      </Link>
+                      {'href' in l ? (
+                        <a
+                          href={l.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group inline-flex items-center gap-1.5 text-sm text-white transition-colors hover:text-brand-300"
+                        >
+                          {l.label}
+                          <ExternalLink className="h-3 w-3 shrink-0 text-white/50 transition-colors group-hover:text-brand-300" />
+                        </a>
+                      ) : (
+                        <Link to={l.to ?? ''} className="text-sm text-white transition-colors hover:text-brand-300">
+                          {l.label}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
