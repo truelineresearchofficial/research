@@ -165,7 +165,7 @@ export const GROUP_LINKS: NavLeaf[] = [
   { label: 'Trueline Publishers', to: 'https://www.truelinepublisher.in/', note: 'Publish & credentialize', external: true },
   { label: 'Trueline Spectrum', to: 'https://truelinespectrum.in/', note: 'The science magazine', external: true },
   { label: 'Jaeid Journal', to: 'https://www.jaeid.com/', note: 'Peer-reviewed journal', external: true },
-  { label: 'StartNet Ventures', to: 'https://startnetx.in/', note: 'Commercialize & partner', external: true },
+  { label: 'StartNet Ventures', to: 'https://startnet.in/', note: 'Commercialize & partner', external: true },
 ]
 
 // ── Home: the three audience doors ────────────────────────────────────────

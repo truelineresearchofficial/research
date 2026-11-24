@@ -36,7 +36,7 @@ const COLS = [
     links: [
       { label: 'Trueline Research', href: 'https://truelineresearch.in/' },
       { label: 'Trueline Publisher', href: 'https://www.truelinepublisher.in/' },
-      { label: 'StartNet', href: 'https://startnetx.in/' },
+      { label: 'StartNet', href: 'https://startnet.in/' },
       { label: 'Trueline Spectrum', href: 'https://truelinespectrum.in/' },
     ],
   },

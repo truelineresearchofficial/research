@@ -50,7 +50,7 @@ export default function Home() {
 // ── Hero ──────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-white via-[#F4FBFB] to-[#EAF7F8] pt-[68px] lg:pt-[104px]">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#F7FCFC] via-[#F7FCFC] to-[#E8F7F5] pt-[68px] lg:pt-[104px]">
       <HeroBackgroundVideo />
 
       <div className="relative">
@@ -163,7 +163,7 @@ function HeroBackgroundVideo() {
   }, [])
 
   return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden bg-[#06313d]">
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden bg-[#F7FCFC]">
       <video
         ref={videoRef}
         src="/videos/hero-background.mp4"
@@ -176,14 +176,10 @@ function HeroBackgroundVideo() {
         tabIndex={-1}
       />
 
-      {/* Subtle white / light-teal brand wash so hero copy stays readable over the clip */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            'linear-gradient(135deg, rgba(255,255,255,0.90) 0%, rgba(244,251,251,0.84) 42%, rgba(0,169,157,0.14) 76%, rgba(0,44,113,0.10) 100%)',
-        }}
-      />
+      {/* Flat, uniform white wash — same opacity at every x position, no left/right falloff. */}
+      <div className="absolute inset-0" style={{ backgroundColor: 'rgba(247,252,252,0.82)' }} />
+      {/* Very subtle flat teal tint on top for atmosphere, uniform everywhere. */}
+      <div className="absolute inset-0" style={{ backgroundColor: 'rgba(232,247,245,0.12)' }} />
     </div>
   )
 }
